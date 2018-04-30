@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.alex.mapper.ArticleMapper">
+
+    <resultMap id="mappingArticle" type="com.alex.entity.vo.ArticleVO">
+        <id column="articleID" property="articleId"/>
+        <result column="title" property="title"/>
+        <result column="create_data" property="create_data"/>
+        <result column="userID" property="userId"/>
+        <result column="cover" property="cover"/>
+        <result column="content" property="content"/>
+        <result column="nickname" property="nickname"/>
+        <result column="typeName" property="typeName"/>
+        <result column="head" property="head"/>
+    </resultMap>
+    <select id="findArticleAll" resultMap="mappingArticle">
+        SELECT
+          a.title, -- 文章标题
+          a.create_data, -- 发表时间
+          a.id AS articleID, -- 文章的ID
+          u.id AS userID, -- 用户的ID
+          a.cover, -- 文章封面
+          a.content, -- 文章内容
+          u.nickname, -- 用户昵称
+          t.typeName, -- 类别名称
+          u.head -- 用户的头像
+        FROM
+          article AS a
+        INNER JOIN
+          user AS u
+        ON
+          a.user_id = u.id
+        INNER JOIN
+          type AS t
+        ON
+          t.id = a.type_id
+          <where>
+              <if test="search != null and search != ''">
+                  AND a.title='%'#{search}'%'
+              </if>
+              <if test="type != null and type!=''">
+                  AND t.typeName=#{type}
+              </if>
+          </where>
+        ORDER BY
+          a.create_data
+        DESC
+        LIMIT
+          #{begin},#{limit}
+    </select>
+
+
+    <select id="findArticleCount" resultType="java.lang.Long">
+        SELECT
+          count(1)
+        FROM
+          article AS a
+        INNER JOIN
+          user AS u
+        ON
+          a.user_id = u.id
+        INNER JOIN
+          type AS t
+        ON
+          t.id = a.type_id
+        <where>
+            <if test="search != null and search != ''">
+                AND a.title='%'#{search}'%'
+            </if>
+            <if test="type != null and type!=''">
+                AND t.typeName=#{type}
+            </if>
+        </where>
+    </select>
+
+</mapper>

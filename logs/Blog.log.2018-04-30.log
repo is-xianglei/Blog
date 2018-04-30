@@ -1,0 +1,259 @@
+2018-04-30 11:15:22.541 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 8716 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:15:22.546 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:15:22.669 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@70b71166: startup date [Mon Apr 30 11:15:22 CST 2018]; root of context hierarchy
+2018-04-30 11:15:25.503 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:15:27.100 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$531daa38] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:15:28.309 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:15:28.341 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:15:28.361 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:15:28.364 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:15:28.410 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:15:28.657 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:15:28.658 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5989 ms
+2018-04-30 11:15:28.967 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:15:28.975 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:15:28.976 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:15:28.976 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:15:28.979 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:15:31.168 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@70b71166: startup date [Mon Apr 30 11:15:22 CST 2018]; root of context hierarchy
+2018-04-30 11:15:31.328 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:15:31.330 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:15:31.336 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:15:31.337 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:15:31.435 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:15:31.436 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:15:31.501 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:15:31.556 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:15:32.232 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:15:32.305 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:15:32.307 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:15:32.312 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:15:32.329 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:15:32.342 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:15:32.368 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:15:32.375 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 10.736 seconds (JVM running for 13.253)
+2018-04-30 11:16:05.657 [http-nio-9889-exec-9] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:16:05.658 [http-nio-9889-exec-9] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:16:05.736 [http-nio-9889-exec-9] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 76 ms
+2018-04-30 11:16:11.703 [http-nio-9889-exec-7] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home
+2018-04-30 11:16:21.874 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:16:24.182 [http-nio-9889-exec-2] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:16:25.140 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:16:31.137 [http-nio-9889-exec-5] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:resource.html
+2018-04-30 11:16:34.577 [http-nio-9889-exec-3] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:timeline.html
+2018-04-30 11:16:39.000 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:16:52.583 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:17:37.757 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 2036 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:17:37.762 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:17:38.000 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@79913a0d: startup date [Mon Apr 30 11:17:38 CST 2018]; root of context hierarchy
+2018-04-30 11:17:40.073 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:17:40.906 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$80ccf193] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:17:41.954 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:17:41.996 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:17:42.028 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:17:42.037 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:17:42.073 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:17:42.514 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:17:42.514 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4514 ms
+2018-04-30 11:17:42.882 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:17:42.890 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:17:42.891 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:17:42.891 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:17:42.892 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:17:45.163 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@79913a0d: startup date [Mon Apr 30 11:17:38 CST 2018]; root of context hierarchy
+2018-04-30 11:17:45.330 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:17:45.332 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:17:45.341 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:17:45.342 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:17:45.455 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:17:45.455 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:17:45.542 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:17:45.616 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:17:46.591 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:17:46.687 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:17:46.692 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:17:46.702 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:17:46.720 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:17:46.732 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:17:46.765 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:17:46.771 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 10.326 seconds (JVM running for 11.502)
+2018-04-30 11:17:53.993 [http-nio-9889-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:17:53.995 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:17:54.076 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 80 ms
+2018-04-30 11:17:54.143 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:18:14.157 [http-nio-9889-exec-3] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:18:30.664 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:timeline.html
+2018-04-30 11:21:41.708 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:22:53.313 [http-nio-9889-exec-2] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:resource.html
+2018-04-30 11:22:54.442 [http-nio-9889-exec-2] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:timeline.html
+2018-04-30 11:22:55.558 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:22:56.721 [http-nio-9889-exec-4] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:22:57.520 [http-nio-9889-exec-8] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:22:58.510 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:detail.html
+2018-04-30 11:27:26.069 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 8624 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:27:26.077 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:27:26.202 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@14796c1e: startup date [Mon Apr 30 11:27:26 CST 2018]; root of context hierarchy
+2018-04-30 11:27:28.170 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:27:28.892 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d51b6146] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:27:29.944 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:27:29.971 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:27:29.996 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:27:29.999 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:27:30.011 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:27:30.232 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:27:30.233 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4031 ms
+2018-04-30 11:27:30.539 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:27:30.550 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:27:30.551 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:27:30.551 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:27:30.552 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:27:32.620 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@14796c1e: startup date [Mon Apr 30 11:27:26 CST 2018]; root of context hierarchy
+2018-04-30 11:27:32.819 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:27:32.853 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:27:32.861 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:27:32.866 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:27:32.955 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:27:32.955 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:27:33.214 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:27:33.316 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:27:34.496 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:27:34.597 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:27:34.605 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:27:34.614 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:27:34.647 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:27:34.669 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:27:34.711 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:27:34.716 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 9.607 seconds (JVM running for 10.801)
+2018-04-30 11:27:42.055 [http-nio-9889-exec-10] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:27:42.058 [http-nio-9889-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:27:42.103 [http-nio-9889-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 43 ms
+2018-04-30 11:27:42.199 [http-nio-9889-exec-10] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:27:45.310 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:28:49.898 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 2520 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:28:49.901 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:28:49.991 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5f771eea: startup date [Mon Apr 30 11:28:49 CST 2018]; root of context hierarchy
+2018-04-30 11:28:52.631 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:28:53.555 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$366d9968] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:28:54.805 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:28:54.833 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:28:54.856 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:28:54.857 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:28:54.879 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:28:55.218 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:28:55.218 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5227 ms
+2018-04-30 11:28:55.613 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:28:55.623 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:28:55.624 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:28:55.624 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:28:55.627 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:28:58.664 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@5f771eea: startup date [Mon Apr 30 11:28:49 CST 2018]; root of context hierarchy
+2018-04-30 11:28:59.058 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:28:59.096 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:28:59.128 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:28:59.130 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:28:59.346 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:28:59.347 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:28:59.525 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:28:59.655 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:29:00.664 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:29:00.801 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:29:00.806 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:29:00.818 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:29:00.845 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:29:00.876 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:29:00.921 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:29:00.941 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 12.323 seconds (JVM running for 13.687)
+2018-04-30 11:29:01.109 [http-nio-9889-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:29:01.109 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:29:01.181 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 72 ms
+2018-04-30 11:29:01.282 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:29:02.028 [http-nio-9889-exec-7] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:nav.html
+2018-04-30 11:33:07.775 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 10564 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:33:07.779 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:33:07.955 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ad57af: startup date [Mon Apr 30 11:33:07 CST 2018]; root of context hierarchy
+2018-04-30 11:33:10.608 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:33:11.378 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e2d5a693] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:33:12.487 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:33:12.516 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:33:12.548 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:33:12.549 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:33:12.573 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:33:12.912 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:33:12.912 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4958 ms
+2018-04-30 11:33:13.409 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:33:13.420 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:33:13.422 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:33:13.422 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:33:13.428 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:33:16.005 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@36ad57af: startup date [Mon Apr 30 11:33:07 CST 2018]; root of context hierarchy
+2018-04-30 11:33:16.284 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:33:16.286 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:33:16.291 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:33:16.292 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:33:16.394 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:33:16.394 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:33:16.516 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:33:16.629 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:33:17.919 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:33:18.025 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:33:18.027 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:33:18.059 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:33:18.093 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:33:18.137 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:33:18.176 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:33:18.182 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 11.651 seconds (JVM running for 13.173)
+2018-04-30 11:33:26.497 [http-nio-9889-exec-9] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:33:26.498 [http-nio-9889-exec-9] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:33:26.547 [http-nio-9889-exec-9] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 48 ms
+2018-04-30 11:33:26.627 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:34:33.725 [http-nio-9889-exec-6] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:34:36.430 [http-nio-9889-exec-7] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:34:38.255 [http-nio-9889-exec-4] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:resource.html
+2018-04-30 11:38:21.087 [http-nio-9889-exec-5] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:38:27.528 [http-nio-9889-exec-9] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:38:48.046 [http-nio-9889-exec-6] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:about.html
+2018-04-30 11:39:38.961 [http-nio-9889-exec-6] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:resource.html
+2018-04-30 11:39:40.487 [http-nio-9889-exec-2] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:39:48.614 [http-nio-9889-exec-7] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:detail.html
+2018-04-30 11:41:45.439 [restartedMain] INFO  com.alex.BlogApplication - Starting BlogApplication on DESKTOP-E450E76 with PID 9540 (C:\Users\iside\Desktop\blog\blog-before\target\classes started by iside in C:\Users\iside\Desktop\blog)
+2018-04-30 11:41:45.445 [restartedMain] INFO  com.alex.BlogApplication - No active profile set, falling back to default profiles: default
+2018-04-30 11:41:45.655 [restartedMain] INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@64687cb3: startup date [Mon Apr 30 11:41:45 CST 2018]; root of context hierarchy
+2018-04-30 11:41:48.404 [restartedMain] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-04-30 11:41:49.419 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f9e77793] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-04-30 11:41:50.711 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9889 (http)
+2018-04-30 11:41:50.739 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:41:50.765 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-04-30 11:41:50.767 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.28
+2018-04-30 11:41:50.781 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\develop\Java\jdk1.8.0_144\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\MySQL\MySQL Server 5.6\bin;C:\develop\apache-maven-3.5.2\bin;C:\develop\Java\jdk1.8.0_144\bin;SystemRoot%\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;d:\Git\cmd;C:\Users\iside\AppData\Local\Microsoft\WindowsApps;C:\Users\iside\AppData\Roaming\npm;.]
+2018-04-30 11:41:51.027 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-04-30 11:41:51.027 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5373 ms
+2018-04-30 11:41:51.407 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Servlet dispatcherServlet mapped to [/]
+2018-04-30 11:41:51.413 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-30 11:41:51.413 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-30 11:41:51.413 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-30 11:41:51.414 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-30 11:41:54.125 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@64687cb3: startup date [Mon Apr 30 11:41:45 CST 2018]; root of context hierarchy
+2018-04-30 11:41:54.289 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/index],methods=[GET]}" onto public com.alex.entity.vo.ResultVO<java.util.List<com.alex.entity.vo.ArticleVO>> com.alex.controller.IndexController.index(java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2018-04-30 11:41:54.291 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/{url}],methods=[GET]}" onto public java.lang.String com.alex.controller.IndexController.getHtml(java.lang.String)
+2018-04-30 11:41:54.296 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-30 11:41:54.296 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-30 11:41:54.396 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:41:54.396 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:41:54.484 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-30 11:41:54.591 [restartedMain] WARN  org.thymeleaf.templatemode.TemplateMode - [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2018-04-30 11:41:55.549 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2018-04-30 11:41:55.656 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-04-30 11:41:55.667 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-04-30 11:41:55.678 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-04-30 11:41:55.701 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9889"]
+2018-04-30 11:41:55.723 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-04-30 11:41:55.750 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9889 (http) with context path ''
+2018-04-30 11:41:55.754 [restartedMain] INFO  com.alex.BlogApplication - Started BlogApplication in 11.453 seconds (JVM running for 12.772)
+2018-04-30 11:41:55.990 [http-nio-9889-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-30 11:41:55.990 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-30 11:41:56.051 [http-nio-9889-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 61 ms
+2018-04-30 11:41:56.182 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:detail.html
+2018-04-30 11:45:36.424 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:45:42.680 [http-nio-9889-exec-4] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
+2018-04-30 11:45:45.905 [http-nio-9889-exec-1] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:article.html
+2018-04-30 11:48:28.109 [http-nio-9889-exec-4] INFO  com.alex.controller.IndexController - 【开始请求，请求路径为】:home.html
