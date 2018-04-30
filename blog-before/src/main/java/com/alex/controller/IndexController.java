@@ -8,6 +8,7 @@ import com.alex.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,13 +54,10 @@ public class IndexController {
      * @return
      */
     @GetMapping(value = "/home")
-    public String getHomeHtml(HttpServletRequest request){
+    public String getHomeHtml(HttpServletRequest request,Model model){
 
         ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
-        //ModelAndView modelAndView = new ModelAndView("home");
-        //modelAndView.addObject("ResultVO",articleAll);
-        request.getSession().setAttribute("ResultVO",articleAll);
-        System.err.println(articleAll);
+        model.addAttribute("ResultVO",articleAll);
 
         return "home";
     }
