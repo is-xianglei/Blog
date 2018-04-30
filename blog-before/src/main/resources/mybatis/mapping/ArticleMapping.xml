@@ -74,4 +74,13 @@
         </where>
     </select>
 
+
+    <insert id="addArticle">
+        INSERT
+        INTO
+          article (id,user_id,content,cover,title,type_id)
+        VALUES
+          (#{articleVO.articleId},#{articleVO.userId},#{articleVO.content},#{articleVO.cover},#{articleVO.title},#{articleVO.typeName});
+    </insert>
+
 </mapper>

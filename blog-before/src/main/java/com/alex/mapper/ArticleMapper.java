@@ -18,4 +18,6 @@ public interface ArticleMapper {
 
     Long findArticleCount(@Param("search") String search, @Param("type") String type);
 
+    void addArticle(@Param("articleVO") ArticleVO articleVO);
+
 }

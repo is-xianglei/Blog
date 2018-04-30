@@ -89,9 +89,9 @@
                             <p>
                                 &nbsp; &nbsp; 加载方法如下：
                             </p>
-<pre class="prettyprint linenums lang-js">layui.use('pagesize',function(){
-    var pagesize = layui.pagesize();
-});</pre>
+                                <pre class="prettyprint linenums lang-js">layui.use('pagesize',function(){
+                                    var pagesize = layui.pagesize();
+                                });</pre>
                             <p>
                                 &nbsp;&nbsp; &nbsp; 它主要提供两个功能，一个是原有的laypage上渲染一段控制页容量的html代码，另一个是点击确定的时候返回所确定的新的页容量。
                             </p>
@@ -101,12 +101,12 @@
                             <p>
                                 &nbsp; &nbsp; 使用方法如下：
                             </p>
-<pre class="prettyprint linenums lang-js">//注意，这个方法须在laypage(seetiongs)方法执行之后，也就是laypage渲染之后！否则可能会出现意外
-pagesize(laypageId, pageSize).callback(function (newPageSize) {
-    //这个回调函数是在指定新的页容量后触发
-    //并返回新的页容量
-    //你可以在这里使用新的页容量重新获取分页数据！
-});</pre>
+                                <pre class="prettyprint linenums lang-js">//注意，这个方法须在laypage(seetiongs)方法执行之后，也就是laypage渲染之后！否则可能会出现意外
+                                pagesize(laypageId, pageSize).callback(function (newPageSize) {
+                                    //这个回调函数是在指定新的页容量后触发
+                                    //并返回新的页容量
+                                    //你可以在这里使用新的页容量重新获取分页数据！
+                                });</pre>
                             &nbsp;&nbsp; &nbsp;<span style="color:#EE33EE;">参数说明</span>：
                             <p>
                                 &nbsp; &nbsp; <span style="color:#337FE5;"><strong>laypageId</strong></span>：laypage容器元素的id属性，同于laypage(settings)的cont属性，由于作之前没看laypage的cont属性还可以传dom或jquery对象，所以这里只支持元素id属性！

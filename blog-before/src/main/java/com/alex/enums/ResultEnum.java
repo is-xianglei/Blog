@@ -16,6 +16,8 @@ public enum  ResultEnum {
     LOGIN_FAIL(505, "登录失败, 登录信息不正确"),
 
     LOGOUT_SUCCESS(404, "登出成功"),
+
+    LOGIN_EXCEPTION(004,"用户状态异常"),
     ;
 
     private Integer code;

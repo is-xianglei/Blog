@@ -5,8 +5,14 @@ import com.alex.entity.vo.ResultVO;
 import com.alex.enums.ResultEnum;
 import com.alex.mapper.ArticleMapper;
 import com.alex.service.ArticleService;
+import com.alex.utils.UUIDUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,6 +21,7 @@ import java.util.List;
  * @Date: 2018/4/27 0027 18:32
  */
 @Service
+@Slf4j
 public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
@@ -42,6 +49,25 @@ public class ArticleServiceImpl implements ArticleService {
         resultVO.setMessage(ResultEnum.SUCCESS.getMessage());
 
         return resultVO;
+    }
+
+    /**
+     * @see ArticleService#addArticle(java.lang.String, com.alex.entity.vo.ArticleVO)
+     */
+    @Override
+    public void addArticle(String id, ArticleVO articleVO) {
+
+        // 设置文章ID
+        articleVO.setArticleId(UUIDUtils.getUUID());
+
+        // 设置用户ID
+        articleVO.setUserId(id);
+
+        System.out.println(articleVO.getContent());
+
+        articleMapper.addArticle(articleVO);
+
+
     }
 
 }
