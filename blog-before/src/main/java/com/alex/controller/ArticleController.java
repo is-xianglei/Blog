@@ -31,11 +31,11 @@ public class ArticleController {
      */
     @PostMapping(value = "/addArticle")
     @ResponseBody
-    public String addArticle(@RequestBody String content, HttpServletRequest request){
+    public String addArticle(@RequestBody ArticleVO articleVO, HttpServletRequest request){
 
         User user = (User) request.getSession().getAttribute("user");
 
-        System.err.println(content);
+        System.err.println(articleVO);
 
         // 用户ID
         String id = user.getId();

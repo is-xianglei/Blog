@@ -79,7 +79,7 @@
         $.ajax({
             type:'post',
             url:'/article/addArticle',
-            data:{content:content},
+            data:JSON.stringify(params),
             dataType: "json",//预期服务器返回的数据类型
             contentType: "application/json;charset=utf-8", //这个是发送信息至服务器时内容编码类型
             success:function(evn){
