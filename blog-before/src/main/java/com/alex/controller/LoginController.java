@@ -26,14 +26,11 @@ public class LoginController {
     /**
      * 跳转到登陆页面
      *
-     * @param modelAndView
      * @return
      */
     @GetMapping("/index")
-    public ModelAndView getLogin(ModelAndView modelAndView){
-
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String getLogin(){
+        return "login";
 
     }
 
@@ -41,21 +38,16 @@ public class LoginController {
      * 用户登陆效验
      *
      * @param user
-     * @param modelAndView
      * @param request
      * @return
      */
     @PostMapping(value = "/login")
-    public ModelAndView login(User user, ModelAndView modelAndView, HttpServletRequest request){
-
+    public String login(User user, HttpServletRequest request){
         User login = loginService.login(user);
+        request.getSession().setAttribute("user",login);//用户信息
 
-        modelAndView.setViewName("home");
-        modelAndView.addObject("user",login);
 
-        request.getSession().setAttribute("user",login);
-
-        return modelAndView;
+        return "home";
     }
 
 }

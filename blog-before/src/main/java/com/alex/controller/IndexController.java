@@ -53,15 +53,15 @@ public class IndexController {
      * @return
      */
     @GetMapping(value = "/home")
-    public ModelAndView getHomeHtml(){
+    public String getHomeHtml(HttpServletRequest request){
 
         ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
-        ModelAndView modelAndView = new ModelAndView("home");
-        modelAndView.addObject("ResultVO",articleAll);
-
+        //ModelAndView modelAndView = new ModelAndView("home");
+        //modelAndView.addObject("ResultVO",articleAll);
+        request.getSession().setAttribute("ResultVO",articleAll);
         System.err.println(articleAll);
 
-        return modelAndView;
+        return "home";
     }
 
     /**
