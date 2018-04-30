@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>登陆页</title>
+    <link rel="stylesheet" th:href="@{/login/css/style.css}"/>
+	<script type="text/javascript" th:src="@{/plug/layui/layui.js}"></script>
+    <!-- 提示升级高级浏览器操作 -->
+    <style>
+    	.ie-content{  position: fixed; left: 0; top: 0; right: 0; bottom:0; background:#fff; z-index: 1000;}
+		.ie-content-bj{ width: 1000px; height: 380px; position: fixed; left: 50%; top: 36%; margin:-190px 0 0 -500px; background:url(img/sj.jpg) no-repeat; }
+		.ie-list{ padding:168px 0 0 371px; }
+		.ie-list a{ margin-right: 80px; }
+    </style>
+	<script language="JavaScript">
+		if (self != top){
+			top.location.href=self.location.href;
+		}
+
+		if (true){
+			if(window.parent.length!=0){
+				window.parent.location.href="/";
+			}
+		}
+
+	</script>
+</head>
+<body class="body_bj">
+
+<div class="login">
+	<div class="logo">
+		<img th:src="@{/login/img/logo.png}" alt="">
+	</div>
+	<form id="my-form" class="layui-form" th:action="@{/user/login}" method="post">
+		<ul class="login-list">
+			<li><input type="text" name="mail" value="isidea@outlook.com" placeholder="请输入邮箱"></li>
+			<li><input type="password" name="password" value="666666" placeholder="请输入密码"></li>
+			<li><button class="btn" type="submit">登录</button></li>
+			<li class="tar"><a href="">忘记密码？</a></li>
+		</ul>
+	</form>
+</div>
+<!--[if lt IE 8]>
+<div class="ie-content">
+	<div class="ie-content-bj">
+	    <div class="ie-list">
+		    <a href="http://www.google.cn/intl/zh-CN/chrome/browser/"><img th:src="@{/img/sj1.jpg}" alt=""></a>
+			<a href="http://www.firefox.com.cn/"><img th:src="@{/img/sj2.jpg}" alt=""></a>
+			<a href="http://chrome.360.cn/"><img th:src="@{/img/sj3.jpg}" alt=""></a>
+	    </div>
+	</div>
+</div>
+<![endif]-->
+
+</body>
+</html>

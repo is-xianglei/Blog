@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.alex.mapper.LoginMapper">
+
+    <select id="login" resultType="com.alex.entity.User">
+        SELECT
+          u.id,
+          u.nickname,
+          u.gender,
+          u.explain,
+          u.mail,
+          u.password,
+          u.head,
+          u.state
+        FROM
+          user AS u
+        WHERE
+          u.mail=#{user.mail}
+    </select>
+
+</mapper>
