@@ -46,18 +46,17 @@ public class LoginController {
      * 用户登陆效验
      *
      * @param user
-     * @param request
+     * @param
      * @return
      */
     @PostMapping(value = "/login")
-    public String login(User user, HttpServletRequest request,Model model){
+    public String login(User user,HttpServletRequest request){
+
         User login = loginService.login(user);
 
         ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
 
-        model.addAttribute("ResultVO",articleAll);
-
-        request.getSession().setAttribute("user",login);//用户信息
+        request.getSession().setAttribute("user",login);
 
         // TODO 跳转登陆页面出错，页面不能获取到session中的数据
 

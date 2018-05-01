@@ -1,6 +1,8 @@
 ﻿
-layui.use('jquery', function () {
+layui.use(['jquery','flow'], function () {
     var $ = layui.jquery;
+    var flow = layui.flow;
+
     $(function () {
         //播放公告
         playAnnouncement(3000);
@@ -19,6 +21,47 @@ layui.use('jquery', function () {
     }
     //画canvas
     DrawCanvas();
+
+    flow.load({
+        elem: '#demo' //指定列表容器
+        ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+            var lis = [];
+            //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+            $.get('/home/?page='+page, function(res){
+                //假设你的列表返回在data集合中
+                layui.each(res.data, function(index, item){
+                    console.log(item);
+                    lis.push('<input type="hidden" value="'+item.articleId+'">');
+                    lis.push('<div class="article shadow">');
+                    lis.push('<div class="article-left">');
+                    lis.push('<img src="'+item.cover+'" alt="" />');
+                    lis.push('</div>');
+                    lis.push('<div class="article-right">');
+                    lis.push('<div class="article-title">');
+                    lis.push('<a href="/detail">'+item.title+'</a>');
+                    lis.push(' </div>');
+                    lis.push(' <div class="article-abstract" text="">');
+                    lis.push(item.content);
+                    lis.push(' </div>');
+                    lis.push('</div>');
+                    lis.push('<div class="clear"></div>');
+                    lis.push('<div class="article-footer">');
+                    lis.push('<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;'+item.create_data+'</span>');
+                    lis.push('<span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;'+item.nickname+'</span>');
+                    lis.push('<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">'+item.typeName+'</a></span>');
+                    lis.push('<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>');
+                    lis.push('</div>');
+                    lis.push('</div>');
+                });
+
+                //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+                //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+                next(lis.join(''), page < res.pages);
+            });
+        }
+    });
+
+
 });
 
 function DrawCanvas() {

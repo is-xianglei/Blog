@@ -34,14 +34,6 @@ public class ArticleController {
     public String addArticle(@RequestBody ArticleVO articleVO, HttpServletRequest request){
 
         User user = (User) request.getSession().getAttribute("user");
-
-        System.err.println(articleVO);
-
-        // 用户ID
-        String id = user.getId();
-
-//        articleService.addArticle(id,articleVO);
-
         return "OK";
 
     }

@@ -51,8 +51,9 @@
                 </div>
                 <!--左边文章列表-->
 
-                <div class="blog-main-left">
-                    <div th:each="vo:${ResultVO.data}">
+                <div class="blog-main-left" id="demo">
+                    <div ></div>
+                    <!--<div th:each="vo:${session.ResultVO.data}">
                         <input type="hidden" th:value="${vo.articleId}">
                         <div class="article shadow">
                             <div class="article-left">
@@ -67,6 +68,7 @@
                                 </div>
                             </div>
                             <div class="clear"></div>
+
                             <div class="article-footer">
                                 <span th:text="${#dates.format(vo.create_data,'yyyy-MM-dd HH:mm:ss')}"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;</span>
                                 <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Absolutely</span>
@@ -74,27 +76,32 @@
                                 <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
                                 <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                             </div>
+
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <!--右边小栏目-->
                 <div class="blog-main-right">
-                    <div class="blogerinfo shadow">
-                        <div class="blogerinfo-figure">
-                            <img src="../images/Absolutely.jpg" alt="Absolutely" />
-                        </div>
-                        <p class="blogerinfo-nickname"></p>
-                        <p class="blogerinfo-introduce">一枚90后程序员，.NET开发工程师</p>
-                        <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;四川 - 成都</p>
-                        <hr />
-                        <div class="blogerinfo-contact">
-                            <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i class="fa fa-qq fa-2x"></i></a>
-                            <a target="_blank" title="给我写信" href="javascript:layer.msg('启动邮我窗口')"><i class="fa fa-envelope fa-2x"></i></a>
-                            <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i class="fa fa-weibo fa-2x"></i></a>
-                            <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i class="fa fa-git fa-2x"></i></a>
+
+                    <div th:if="${session.user} != null">
+                        <div class="blogerinfo shadow">
+                            <div class="blogerinfo-figure">
+                                <img src="../images/Absolutely.jpg" alt="Absolutely" />
+                            </div>
+                            <p class="blogerinfo-nickname"></p>
+                            <p class="blogerinfo-introduce" th:text="${session.user.nickname}"></p>
+                            <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;四川 - 成都</p>
+                            <hr />
+                            <div class="blogerinfo-contact">
+                                <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i class="fa fa-qq fa-2x"></i></a>
+                                <a target="_blank" title="给我写信" href="javascript:layer.msg('启动邮我窗口')"><i class="fa fa-envelope fa-2x"></i></a>
+                                <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i class="fa fa-weibo fa-2x"></i></a>
+                                <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i class="fa fa-git fa-2x"></i></a>
+                            </div>
                         </div>
                     </div>
+
                     <div></div><!--占位-->
                     <div class="blog-module shadow">
                         <div class="blog-module-title">热文排行</div>
