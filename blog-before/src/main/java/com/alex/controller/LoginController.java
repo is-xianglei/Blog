@@ -54,7 +54,7 @@ public class LoginController {
 
         User login = loginService.login(user);
 
-        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
+//        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
 
         request.getSession().setAttribute("user",login);
 
@@ -62,7 +62,7 @@ public class LoginController {
 
         System.err.println(login);
 
-        return "home";
+        return "redirect:/home2";
     }
 
 }
