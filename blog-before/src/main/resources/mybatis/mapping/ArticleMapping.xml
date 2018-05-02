@@ -83,4 +83,16 @@
           (#{articleVO.articleId},#{articleVO.userId},#{articleVO.content},#{articleVO.cover},#{articleVO.title},#{articleVO.typeName});
     </insert>
 
+    <!--查看文章内容-->
+    <select id="selectByArticleId" resultMap="mappingArticle">
+        select
+        a.title, -- 文章标题
+        a.create_data, -- 发表时间
+        a.id AS articleID, -- 文章的ID
+        a.cover, -- 文章封面
+        a.content, -- 文章内容
+        u.nickname
+        from article a INNER JOIN user u ON u.id=a.user_id where a.id=#{articleId}
+    </select>
+
 </mapper>

@@ -33,7 +33,6 @@ public class LoginController {
 
     /**
      * 跳转到登陆页面
-     *
      * @return
      */
     @GetMapping("/index")
@@ -44,18 +43,14 @@ public class LoginController {
 
     /**
      * 用户登陆效验
-     *
      * @param user
      * @param
      * @return
      */
     @PostMapping(value = "/login")
     public String login(User user,HttpServletRequest request){
-
         User login = loginService.login(user);
-
         request.getSession().setAttribute("user",login);
-
         return "redirect:/home";
     }
 

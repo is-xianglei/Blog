@@ -20,4 +20,6 @@ public interface ArticleMapper {
 
     void addArticle(@Param("articleVO") ArticleVO articleVO);
 
+    ArticleVO selectByArticleId(@Param("articleId") String articleId);
+
 }

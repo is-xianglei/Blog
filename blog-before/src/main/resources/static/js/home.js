@@ -34,14 +34,14 @@ layui.use(['jquery','flow'], function () {
                 //假设你的列表返回在data集合中
                 layui.each(res.data, function(index, item){
                     console.log(item);
-                    lis.push('<input type="hidden" value="'+item.articleId+'">');
                     lis.push('<div class="article shadow">');
                     lis.push('<div class="article-left">');
                     lis.push('<img lay-src="'+item.cover+'" alt="" style="height:80px;"/>');
                     lis.push('</div>');
                     lis.push('<div class="article-right">');
                     lis.push('<div class="article-title">');
-                    lis.push('<a href="/detail">'+item.title+'</a>');
+                    lis.push('<a href="javascript:void(0)">'+item.title+'</a>');
+                    lis.push('<input type="hidden" value="'+item.articleId+'">');
                     lis.push(' </div>');
                     lis.push(' <div class="article-abstract" text="">');
                     lis.push(item.content);
@@ -64,7 +64,14 @@ layui.use(['jquery','flow'], function () {
         }
     });
 
-
+    /**
+     * 通过id获取文章内容
+     */
+    $(document).on('click','.article-title a',function(){
+        debugger;
+        var articleId = $(this).parents('.article-title').find('input').val();
+        window.location.href="/article/articleContent?articleId="+articleId;
+    })
 });
 
 function DrawCanvas() {
@@ -246,3 +253,4 @@ function resizeCanvas() {
     canvas.width = window.document.body.clientWidth;
     canvas.height = window.innerHeight * 1 / 3;
 }
+
