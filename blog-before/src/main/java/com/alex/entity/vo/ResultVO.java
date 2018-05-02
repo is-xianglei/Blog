@@ -20,6 +20,9 @@ public class ResultVO<T> {
     /** 总记录数 */
     private Long size;
 
+    /** 总页数 */
+    private Long totalPage;
+
     /** 具体内容 */
     private T data;
 

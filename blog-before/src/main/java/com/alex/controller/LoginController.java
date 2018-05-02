@@ -54,15 +54,9 @@ public class LoginController {
 
         User login = loginService.login(user);
 
-//        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
-
         request.getSession().setAttribute("user",login);
 
-        // TODO 跳转登陆页面出错，页面不能获取到session中的数据
-
-        System.err.println(login);
-
-        return "redirect:/home2";
+        return "redirect:/home";
     }
 
 }

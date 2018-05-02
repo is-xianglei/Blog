@@ -29,26 +29,24 @@ public class IndexController {
      *
      * @return
      */
-    @GetMapping(value = "/home")
+    @GetMapping(value = "/index")
     @ResponseBody
-    public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam("page")String page){
+    public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam(value = "page",defaultValue = "1")Integer page){
 
-        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
-//        model.addAttribute("ResultVO",articleAll);
+        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 2, "", "");
 
         request.getSession().setAttribute("ResultVO",articleAll);
-        System.err.println(articleAll);
 
         return articleAll;
     }
 
-    @GetMapping(value = "/home2")
-    public String getHomeHtml2(Model model,HttpServletRequest request){
-
-        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(1, 10, "", "");
-//        model.addAttribute("ResultVO",articleAll);
-
-        request.getSession().setAttribute("ResultVO",articleAll);
+    /**
+     * 转发到home页面
+     *
+     * @return
+     */
+    @GetMapping(value = "/home")
+    public String getHomeHtml2(){
 
         return "home";
     }
