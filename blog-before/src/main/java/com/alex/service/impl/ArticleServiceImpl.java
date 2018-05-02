@@ -32,18 +32,23 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public ResultVO<List<ArticleVO>> findArticleAll(Integer page, Integer limit, String search, String type) {
+
         ResultVO<List<ArticleVO>> resultVO = new ResultVO<>();
+
         // 设置总记录数
         Long articleCount = articleMapper.findArticleCount(search, type);
         resultVO.setSize(articleCount);
+
         // 设置从哪里开始查询
         int begin = (page -1)*limit;
         // 设置总页数
         resultVO.setTotalPage(articleCount / limit);
+
         List<ArticleVO> articleAll = articleMapper.findArticleAll(begin, limit, search, type);
         resultVO.setData(articleAll);
         resultVO.setCode(ResultEnum.SUCCESS.getCode());
         resultVO.setMessage(ResultEnum.SUCCESS.getMessage());
+
         return resultVO;
     }
 
@@ -52,11 +57,13 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public void addArticle(String id, ArticleVO articleVO) {
+
         // 设置文章ID
         articleVO.setArticleId(UUIDUtils.getUUID());
+
         // 设置用户ID
         articleVO.setUserId(id);
-        System.out.println(articleVO.getContent());
+
         articleMapper.addArticle(articleVO);
     }
 

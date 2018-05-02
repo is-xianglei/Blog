@@ -49,8 +49,11 @@ public class LoginController {
      */
     @PostMapping(value = "/login")
     public String login(User user,HttpServletRequest request){
+
         User login = loginService.login(user);
+
         request.getSession().setAttribute("user",login);
+
         return "redirect:/home";
     }
 

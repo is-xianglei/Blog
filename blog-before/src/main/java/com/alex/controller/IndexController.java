@@ -31,8 +31,11 @@ public class IndexController {
     @GetMapping(value = "/index")
     @ResponseBody
     public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam(value = "page",defaultValue = "1")Integer page){
+
         ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 2, "", "");
+
         request.getSession().setAttribute("ResultVO",articleAll);
+
         return articleAll;
     }
 
@@ -51,7 +54,9 @@ public class IndexController {
      */
     @GetMapping(value = "/detail")
     public ModelAndView getDetail(){
+
         ModelAndView modelAndView = new ModelAndView("detail");
+
         return modelAndView;
 
     }

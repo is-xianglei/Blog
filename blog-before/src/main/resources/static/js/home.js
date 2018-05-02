@@ -68,7 +68,6 @@ layui.use(['jquery','flow'], function () {
      * 通过id获取文章内容
      */
     $(document).on('click','.article-title a',function(){
-        debugger;
         var articleId = $(this).parents('.article-title').find('input').val();
         window.location.href="/article/articleContent?articleId="+articleId;
     })

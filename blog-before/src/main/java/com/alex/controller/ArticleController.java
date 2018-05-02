@@ -32,7 +32,9 @@ public class ArticleController {
     @PostMapping(value = "/addArticle")
     @ResponseBody
     public String addArticle(@RequestBody ArticleVO articleVO, HttpServletRequest request){
+
         User user = (User) request.getSession().getAttribute("user");
+
         return "OK";
 
     }
@@ -44,10 +46,11 @@ public class ArticleController {
      */
     @RequestMapping("/articleContent")
     public String articleContent(String articleId, Model model){
-        System.out.println("=============="+articleId);
+
         ArticleVO articleContent = articleService.selectByArticleId(articleId);
-        System.out.println("文章内容："+articleContent);
+
         model.addAttribute("articleContent", articleContent);
+
         return "detail";
     }
 
