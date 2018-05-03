@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文章内容</title>
+    <link th:href="@{/plug/editor/css/editormd.min.css}" rel="stylesheet" />
+    <link rel="shortcut icon" th:href="@{/images/Logo_40.png}" type="image/x-icon">
+    <!--Layui-->
+    <link th:href="@{/plug/layui/css/layui.css}" rel="stylesheet" />
+    <!--font-awesome-->
+    <link th:href="@{/plug/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+    <!--全局样式表-->
+    <link th:href="@{/css/global.css}" rel="stylesheet" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script th:src="@{/plug/editor/editormd.min.js}"></script>
+    <script type="text/javascript" th:inline="javascript">
+
+        var testEditor;
+
+        testEditor=$(function() {
+            editormd("test-editormd", {
+                width   : "90%",
+                height  : 640,
+                //markdown : md,
+                codeFold : true,
+                syncScrolling : "single",
+                //你的lib目录的路径
+
+                path    : "/plug/editor/lib/",
+                imageUpload: false,//关闭图片上传功能
+                /*  theme: "dark",//工具栏主题
+                 previewTheme: "dark",//预览主题
+                 editorTheme: "pastel-on-dark",//编辑主题 */
+                emoji: false,
+                taskList: true,
+                tocm: true,         // Using [TOCM]
+                tex: true,                   // 开启科学公式TeX语言支持，默认关闭
+                flowChart: true,             // 开启流程图支持，默认关闭
+                sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
+                //这个配置在simple.html中并没有，但是为了能够提交表单，使用这个配置可以让构造出来的HTML代码直接在第二个隐藏的textarea域中，方便post提交表单。
+                saveHTMLToTextarea : true
+            });
+
+        });
+
+    </script>
+    <!-- editormd end -->
+</head>
+<body>
+
+<!-- 导航 -->
+<div th:include="nav" />
+
+<!-- editormd start -->
+<div class="editormd" id="test-editormd" style="margin: 100px;">
+    <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
+    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+    <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
+    <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml"></textarea>
+
+
+</div>
+<button type="button" id="btn">提交</button>
+<!-- editormd end -->
+
+<script>
+    $('#btn').click(function () {
+
+        var content = $('#editorhtml').val();
+
+        var params = {
+            cover:'', // 文章封面图
+            typeName:'', // 文章类型
+            content:content, // 文章内容
+            title:'' // 文章标题
+        };
+
+        $.ajax({
+            type:'post',
+            url:'/article/addArticle',
+            data:JSON.stringify(params),
+            dataType: "json",//预期服务器返回的数据类型
+            contentType: "application/json;charset=utf-8", //这个是发送信息至服务器时内容编码类型
+            success:function(evn){
+                console.log(evn);
+            }
+        });
+
+    });
+</script>
+
+<!--遮罩-->
+<div class="blog-mask animated layui-hide"></div>
+<!-- layui.js -->
+<script src="../plug/layui/layui.js"></script>
+<!-- 全局脚本 -->
+<script src="../js/global.js"></script>
+<!-- 底部 -->
+<div th:include="footer"/>
+</body>
+</html>
