@@ -47,37 +47,77 @@
 
 <!-- 导航 -->
 <div th:include="nav" />
-
-<!-- editormd start -->
-<div class="editormd" id="test-editormd" style="margin: 100px;">
-    <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
-    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
-    <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
-    <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml"></textarea>
-
-
-</div>
-<div class="layui-row">
-    <div class="layui-col-md3 layui-col-md-offset3">
-        <button class="layui-btn layui-btn-normal" type="button" id="btn-sub">提 交</button>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<form class="layui-form" action="">
+<!--文章标题-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题：</label>
+        <div class="layui-input-block">
+            <input type="text" id="title" required lay-verify="title" placeholder="请输入标题" class="layui-input">
+        </div>
     </div>
-    <div class="layui-col-md3 layui-col-md-offset9">
-        <button class="layui-btn layui-btn-normal" type="button" id="btn-init">清 空</button>
+    <!--文章类型下拉框-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章类型：</label>
+        <div class="layui-input-block">
+            <select name="city" lay-verify="required">
+                <option value=""></option>
+                <option value="0">北京</option>
+                <option value="1">上海</option>
+                <option value="2">广州</option>
+                <option value="3">深圳</option>
+                <option value="4">杭州</option>
+            </select>
+        </div>
     </div>
-</div>
+    <!-- editormd start -->
+    <div class="editormd" id="test-editormd" style="margin: 100px;">
+        <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
+        <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+        <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
+        <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml" lay-verify="editorhtml"></textarea>
+
+
+    </div>
+    <div class="layui-row">
+        <div class="layui-col-md3 layui-col-md-offset3">
+            <button class="layui-btn layui-btn-normal" type="button" id="btn-sub">提 交</button>
+        </div>
+        <div class="layui-col-md3 layui-col-md-offset9">
+            <button class="layui-btn layui-btn-normal" type="button" id="btn-init">清 空</button>
+        </div>
+    </div>
+</form>
 <!-- editormd end -->
 
 <script>
+    $(function(){
+        //获取文章类型
+        window.location.href="/type/typeList";
+    })
     /**
      * 发布文章
      */
     $('#btn-sub').click(function () {
+        var title = $("#title").val();
         var content = $('#editorhtml').val();
+        if(title == null){
+            layer.open({
+                title: '发布失败'
+                ,content: '标题不能为空',
+            });
+            return false;
+        }
         var params = {
             cover:'', // 文章封面图
             typeName:'', // 文章类型
             content:content, // 文章内容
-            title:'' // 文章标题
+            title:title // 文章标题
         };
         $.ajax({
             type:'post',

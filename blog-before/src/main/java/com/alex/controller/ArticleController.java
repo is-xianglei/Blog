@@ -36,10 +36,10 @@ public class ArticleController {
         User user = (User) request.getSession().getAttribute("user");
         //模拟数据
         ArticleVO article = new ArticleVO();
-        article.setArticleId(UUIDUtils.getUUID());
-        article.setUserId(user.getId());
-        article.setContent(articleVO.getContent());
-        article.setTitle("测试文章标题1");
+        article.setArticleId(UUIDUtils.getUUID());//文章id不需要
+        article.setUserId(user.getId());//作者id
+        article.setContent(articleVO.getContent());//文章内容已经获取到
+        article.setTitle(articleVO.getTitle());
         article.setType_id("4");
         System.out.println(article);
         int num = articleService.addArticle(article);
