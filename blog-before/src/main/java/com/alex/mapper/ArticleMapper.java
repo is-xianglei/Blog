@@ -18,8 +18,18 @@ public interface ArticleMapper {
 
     Long findArticleCount(@Param("search") String search, @Param("type") String type);
 
-    void addArticle(@Param("articleVO") ArticleVO articleVO);
+    /**
+     * 添加文章
+     * @param articleVO
+     * @return
+     */
+    int addArticle(@Param("articleVO") ArticleVO articleVO);
 
+    /**
+     * 通过文章id获取文章内容
+     * @param articleId
+     * @return
+     */
     ArticleVO selectByArticleId(@Param("articleId") String articleId);
 
 }

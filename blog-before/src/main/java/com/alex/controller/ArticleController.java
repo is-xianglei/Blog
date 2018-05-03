@@ -3,6 +3,7 @@ package com.alex.controller;
 import com.alex.entity.User;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.service.ArticleService;
+import com.alex.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,10 +33,20 @@ public class ArticleController {
     @PostMapping(value = "/addArticle")
     @ResponseBody
     public String addArticle(@RequestBody ArticleVO articleVO, HttpServletRequest request){
-
         User user = (User) request.getSession().getAttribute("user");
-
-        return "OK";
+        //模拟数据
+        ArticleVO article = new ArticleVO();
+        article.setArticleId(UUIDUtils.getUUID());
+        article.setUserId(user.getId());
+        article.setContent(articleVO.getContent());
+        article.setTitle("测试文章标题1");
+        article.setType_id("4");
+        System.out.println(article);
+        int num = articleService.addArticle(article);
+        if(0 < num){
+            return "添加成功";
+        }
+        return "添加失败";
 
     }
 

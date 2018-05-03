@@ -78,4 +78,14 @@ public class ArticleServiceImpl implements ArticleService {
         System.out.println("文章id"+articleId);
         return articleMapper.selectByArticleId(articleId);
     }
+
+    /**
+     * @see ArticleService#addArticle(ArticleVO)
+     * @param articleVO
+     * @return
+     */
+    @Override
+    public int addArticle(ArticleVO articleVO) {
+        return articleMapper.addArticle(articleVO);
+    }
 }

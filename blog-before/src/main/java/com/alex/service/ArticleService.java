@@ -34,4 +34,11 @@ public interface ArticleService {
      * @return
      */
     ArticleVO selectByArticleId(String articleId);
+
+    /**
+     * 添加文章
+     * @param articleVO
+     * @return
+     */
+    int addArticle(ArticleVO articleVO);
 }

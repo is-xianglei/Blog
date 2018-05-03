@@ -38,4 +38,7 @@ public class ArticleVO {
     /** 文章标题 */
     private String title;
 
+    /** 文章类别id */
+    private String type_id;
+
 }
