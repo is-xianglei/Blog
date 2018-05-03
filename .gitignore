@@ -19,10 +19,7 @@ target/
 mvnw
 mvnw.cmd
 target/
-<<<<<<< HEAD
 logs/
-=======
->>>>>>> bc028d7bf8159cf6fcf6bca95d486263c6c4d14c
 
 ### NetBeans ###
 nbproject/private/
@@ -30,8 +27,5 @@ build/
 nbbuild/
 dist/
 nbdist/
-<<<<<<< HEAD
 .nb-gradle/
-=======
 .nb-gradle/
->>>>>>> bc028d7bf8159cf6fcf6bca95d486263c6c4d14c
