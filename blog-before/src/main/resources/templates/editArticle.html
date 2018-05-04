@@ -27,7 +27,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">所在专栏</label>
             <div class="layui-input-inline">
-                <select name="quiz1">
+                <select id="typeValue" name="typeValue">
                     <option></option>
                     <option th:each="list:${typeList}" th:value="${list.id}" th:text="${list.typeName}"></option>
                 </select>
@@ -81,6 +81,7 @@
      * 发布文章
      */
     $('#btn-sub').click(function () {
+        var typeValue = $('#typeValue').val();
         var title = $("#title").val();
         var content = $('#editorhtml').val();
         if(title == null){
@@ -91,8 +92,8 @@
             return false;
         }
         var params = {
-            cover:'https://picsum.photos/200/300/?random', // 文章封面图
-            typeName:'2', // 文章类型
+            photo:'https://picsum.photos/200/300/?random', // 文章封面图
+            typeID:typeValue, // 文章类型
             content:content, // 文章内容
             title:title // 文章标题
         };
@@ -103,8 +104,6 @@
             contentType: "application/json;charset=utf-8", //这个是发送信息至服务器时内容编码类型
             dataType: 'json',//预期服务器返回的数据类型
             success:function(data){
-                debugger;
-                console.log(data.articleID);
                 window.location.href='/article/articleContent?articleId='+data.articleID;
             }
         });

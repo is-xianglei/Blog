@@ -45,9 +45,10 @@ public class ArticleController {
         // 设置文章ID
         articleFrom.setArticleID(UUIDUtils.getUUID());
 
-        // 设置假数据
-        articleFrom.setPhoto("封面图");
-        articleFrom.setTypeID("4");
+        // 设置封面图信息
+        articleFrom.setPhoto(articleFrom.getPhoto());
+        // 设置类型ID
+        articleFrom.setTypeID(articleFrom.getTypeID());
 
         // 插入数据后查询出用户刚才编写的文章并用户带到详情页展示文章
         String articleID = articleService.addArticle(articleFrom);
