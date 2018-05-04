@@ -53,11 +53,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
-     * @see ArticleService#addArticle(com.alex.entity.from.ArticleFrom)
+     * com.alex.service.ArticleService#addArticle(com.alex.entity.from.ArticleFrom)
      */
     @Transactional(rollbackFor = BlogException.class)
     @Override
-    public ArticleVO addArticle(ArticleFrom articleFrom) {
+    public String addArticle(ArticleFrom articleFrom) {
 
         // 保存一篇文章到数据库
         try {
@@ -67,10 +67,8 @@ public class ArticleServiceImpl implements ArticleService {
             throw new BlogException(ResultEnum.ARTICLE_SAVE_ERROR.getMessage()+",文章ID:"+articleFrom.getArticleID(),ResultEnum.ARTICLE_SAVE_ERROR.getCode());
         }
 
-        // 保存成功后根据文章ID去查询此文章的详情
-        ArticleVO articleVO = articleMapper.selectByArticleId(articleFrom.getArticleID());
 
-        return articleVO;
+        return articleFrom.getArticleID();
     }
 
 

@@ -27,7 +27,7 @@ public interface ArticleService {
      * 添加一篇文章
      * @param articleFrom 文章对象
      */
-    ArticleVO addArticle(ArticleFrom articleFrom);
+    String addArticle(ArticleFrom articleFrom);
 
     /**
      * 通过文章id获取文章内容

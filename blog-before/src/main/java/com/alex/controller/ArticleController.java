@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Alex isidea@outlook.com
@@ -32,7 +34,8 @@ public class ArticleController {
      * @return
      */
     @PostMapping(value = "/addArticle")
-    public String addArticle(@RequestBody ArticleFrom articleFrom, HttpServletRequest request,Model model){
+    @ResponseBody
+    public Map<String,String> addArticle(@RequestBody ArticleFrom articleFrom, HttpServletRequest request,Model model){
 
         User user = (User) request.getSession().getAttribute("user");
         // 获取并设置发表文章的用户ID
@@ -47,10 +50,11 @@ public class ArticleController {
         articleFrom.setTypeID("4");
 
         // 插入数据后查询出用户刚才编写的文章并用户带到详情页展示文章
-        ArticleVO articleVO = articleService.addArticle(articleFrom);
+        String articleID = articleService.addArticle(articleFrom);
 
-        model.addAttribute("articleContent",articleVO);
-        return "detail";
+        Map<String,String> map = new HashMap<>(16);
+        map.put("articleID",articleID);
+        return map;
 
     }
 
