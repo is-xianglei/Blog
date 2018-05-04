@@ -1,5 +1,7 @@
 package com.alex.service;
 
+import com.alex.entity.Type;
+import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.ResultVO;
 import java.util.List;
@@ -22,11 +24,10 @@ public interface ArticleService {
     ResultVO<List<ArticleVO>> findArticleAll(Integer page, Integer limit, String search, String type);
 
     /**
-     * 添加一篇文章，并把文章内容写出MD文本中，将此文章信息存放到该用户的目录下
-     * @param id        用户ID
-     * @param articleVO 文章对象
+     * 添加一篇文章
+     * @param articleFrom 文章对象
      */
-    void addArticle(String id,ArticleVO articleVO);
+    ArticleVO addArticle(ArticleFrom articleFrom);
 
     /**
      * 通过文章id获取文章内容
@@ -36,9 +37,9 @@ public interface ArticleService {
     ArticleVO selectByArticleId(String articleId);
 
     /**
-     * 添加文章
-     * @param articleVO
+     * 获取文章类型列表
      * @return
      */
-    int addArticle(ArticleVO articleVO);
+    List<Type> getTypeList();
+
 }

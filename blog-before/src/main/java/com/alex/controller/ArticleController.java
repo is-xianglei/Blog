@@ -1,6 +1,7 @@
 package com.alex.controller;
 
 import com.alex.entity.User;
+import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.service.ArticleService;
 import com.alex.utils.UUIDUtils;
@@ -25,33 +26,36 @@ public class ArticleController {
     private ArticleService articleService;
 
     /**
-     * 处理用户发表的文章信息
+     * 处理用户发表的文章信息发表成功后在详情页展示用户发表的文章
      * @param
      * @param request
      * @return
      */
     @PostMapping(value = "/addArticle")
-    @ResponseBody
-    public String addArticle(@RequestBody ArticleVO articleVO, HttpServletRequest request){
+    public String addArticle(@RequestBody ArticleFrom articleFrom, HttpServletRequest request,Model model){
+
         User user = (User) request.getSession().getAttribute("user");
-        //模拟数据
-        ArticleVO article = new ArticleVO();
-        article.setArticleId(UUIDUtils.getUUID());//文章id不需要
-        article.setUserId(user.getId());//作者id
-        article.setContent(articleVO.getContent());//文章内容已经获取到
-        article.setTitle(articleVO.getTitle());
-        article.setType_id("4");
-        System.out.println(article);
-        int num = articleService.addArticle(article);
-        if(0 < num){
-            return "添加成功";
-        }
-        return "添加失败";
+        // 获取并设置发表文章的用户ID
+        String id = user.getId();
+        articleFrom.setUserID(id);
+
+        // 设置文章ID
+        articleFrom.setArticleID(UUIDUtils.getUUID());
+
+        // 设置假数据
+        articleFrom.setPhoto("封面图");
+        articleFrom.setTypeID("4");
+
+        // 插入数据后查询出用户刚才编写的文章并用户带到详情页展示文章
+        ArticleVO articleVO = articleService.addArticle(articleFrom);
+
+        model.addAttribute("articleContent",articleVO);
+        return "detail";
 
     }
 
     /**
-     * 查看文章内容
+     * 根据文章ID查看文章详情信息
      * @param articleId 文章id
      * @return
      */

@@ -1,19 +1,14 @@
 package com.alex.controller;
 
 import com.alex.entity.User;
-import com.alex.entity.vo.ArticleVO;
-import com.alex.entity.vo.ResultVO;
 import com.alex.service.ArticleService;
 import com.alex.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * 用户登陆
@@ -54,7 +49,7 @@ public class LoginController {
 
         request.getSession().setAttribute("user",login);
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 }

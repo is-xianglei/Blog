@@ -1,18 +1,18 @@
 package com.alex.service.impl;
 
+import com.alex.entity.Type;
+import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.ResultVO;
 import com.alex.enums.ResultEnum;
+import com.alex.exception.BlogException;
 import com.alex.mapper.ArticleMapper;
 import com.alex.service.ArticleService;
-import com.alex.utils.UUIDUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
@@ -53,18 +53,24 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
-     * @see ArticleService#addArticle(java.lang.String, com.alex.entity.vo.ArticleVO)
+     * @see ArticleService#addArticle(com.alex.entity.from.ArticleFrom)
      */
+    @Transactional(rollbackFor = BlogException.class)
     @Override
-    public void addArticle(String id, ArticleVO articleVO) {
+    public ArticleVO addArticle(ArticleFrom articleFrom) {
 
-        // 设置文章ID
-        articleVO.setArticleId(UUIDUtils.getUUID());
+        // 保存一篇文章到数据库
+        try {
+            int i = articleMapper.addArticle(articleFrom);
+        } catch (Exception e) {
+            log.info(ResultEnum.ARTICLE_SAVE_ERROR.getMessage()+",文章ID:"+articleFrom.getArticleID());
+            throw new BlogException(ResultEnum.ARTICLE_SAVE_ERROR.getMessage()+",文章ID:"+articleFrom.getArticleID(),ResultEnum.ARTICLE_SAVE_ERROR.getCode());
+        }
 
-        // 设置用户ID
-        articleVO.setUserId(id);
+        // 保存成功后根据文章ID去查询此文章的详情
+        ArticleVO articleVO = articleMapper.selectByArticleId(articleFrom.getArticleID());
 
-        articleMapper.addArticle(articleVO);
+        return articleVO;
     }
 
 
@@ -75,17 +81,15 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public ArticleVO selectByArticleId(String articleId) {
-        System.out.println("文章id"+articleId);
         return articleMapper.selectByArticleId(articleId);
     }
 
     /**
-     * @see ArticleService#addArticle(ArticleVO)
-     * @param articleVO
-     * @return
+     * @see ArticleService#getTypeList()
      */
     @Override
-    public int addArticle(ArticleVO articleVO) {
-        return articleMapper.addArticle(articleVO);
+    public List<Type> getTypeList() {
+        return articleMapper.selectTypeList();
     }
+
 }

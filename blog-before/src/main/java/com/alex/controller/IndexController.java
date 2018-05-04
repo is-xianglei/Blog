@@ -1,5 +1,6 @@
 package com.alex.controller;
 
+import com.alex.entity.Type;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.ResultVO;
 import com.alex.service.ArticleService;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -43,22 +43,9 @@ public class IndexController {
      * 转发到home页面
      * @return
      */
-    @GetMapping(value = "/home")
+    @GetMapping(value = "/")
     public String getHomeHtml2(){
         return "home";
-    }
-
-    /**
-     * 展示文章的详细信息
-     * @return
-     */
-    @GetMapping(value = "/detail")
-    public ModelAndView getDetail(){
-
-        ModelAndView modelAndView = new ModelAndView("detail");
-
-        return modelAndView;
-
     }
 
     /**
@@ -68,7 +55,11 @@ public class IndexController {
      * @return
      */
     @GetMapping(value = "/editArticle")
-    public String editArticle(){
+    public String editArticle(Model model){
+
+        List<Type> typeList = articleService.getTypeList();
+        model.addAttribute("typeList",typeList);
+
         return "editArticle";
 
     }

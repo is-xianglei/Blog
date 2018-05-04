@@ -49,8 +49,6 @@
         LIMIT
           #{begin},#{limit}
     </select>
-
-
     <select id="findArticleCount" resultType="java.lang.Long">
         SELECT
           count(1)
@@ -77,21 +75,44 @@
     <!--查看文章内容-->
     <select id="selectByArticleId" resultMap="mappingArticle">
         select
-        a.title, -- 文章标题
-        a.create_data, -- 发表时间
-        a.id AS articleID, -- 文章的ID
-        a.cover, -- 文章封面
-        a.content, -- 文章内容
-        u.nickname
-        from article a INNER JOIN user u ON u.id=a.user_id where a.id=#{articleId}
+          a.title, -- 文章标题
+          a.type_id, -- 文章类型ID
+          a.create_data, -- 发表时间
+          a.id AS articleID, -- 文章的ID
+          a.cover, -- 文章封面
+          a.content, -- 文章内容
+          u.nickname, -- 发表人昵称
+          u.id, -- 发表用户ID
+          u.head -- 用户头像
+        from
+          article a
+        INNER JOIN
+          user u
+        ON
+          u.id=a.user_id
+        where a.id=#{articleId}
     </select>
 
     <!--发布文章-->
     <insert id="addArticle">
       INSERT INTO
-      article (id,user_id,content,cover,title,type_id)
+      article
+      (id,user_id,content,cover,title,type_id)
       VALUES
-      (#{articleVO.articleId},#{articleVO.userId},#{articleVO.content},#{articleVO.cover},#{articleVO.title},#{articleVO.type_id});
+      (#{articleFrom.articleID},#{articleFrom.userID},#{articleFrom.content},#{articleFrom.photo},#{articleFrom.title},#{articleFrom.typeID});
     </insert>
+
+
+    <resultMap id="mappingType" type="com.alex.entity.Type">
+        <id column="id" property="id"/>
+        <result column="typeName" property="typeName"/>
+    </resultMap>
+    <select id="selectTypeList" resultMap="mappingType">
+        select
+          id,
+          typeName
+        from
+        type;
+    </select>
 
 </mapper>

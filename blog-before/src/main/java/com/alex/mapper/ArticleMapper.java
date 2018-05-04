@@ -1,10 +1,10 @@
 package com.alex.mapper;
 
+import com.alex.entity.Type;
+import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
@@ -14,16 +14,32 @@ import java.util.List;
 @Mapper
 public interface ArticleMapper {
 
+    /**
+     * 查询所有的文章列表信息
+     *
+     * @param begin 起始页
+     * @param limit 每页显示的记录数
+     * @param search 查询条件
+     * @param type  文章类型
+     * @return
+     */
     List<ArticleVO> findArticleAll(@Param("begin") Integer begin, @Param("limit") Integer limit, @Param("search") String search, @Param("type") String type);
 
+    /**
+     * 查找所有文章记录数
+     *
+     * @param search
+     * @param type
+     * @return
+     */
     Long findArticleCount(@Param("search") String search, @Param("type") String type);
 
     /**
      * 添加文章
-     * @param articleVO
+     * @param articleFrom
      * @return
      */
-    int addArticle(@Param("articleVO") ArticleVO articleVO);
+    int addArticle(@Param("articleFrom") ArticleFrom articleFrom);
 
     /**
      * 通过文章id获取文章内容
@@ -31,5 +47,11 @@ public interface ArticleMapper {
      * @return
      */
     ArticleVO selectByArticleId(@Param("articleId") String articleId);
+
+    /**
+     * 查询所有文章类型列表
+     * @return
+     */
+    List<Type> selectTypeList();
 
 }

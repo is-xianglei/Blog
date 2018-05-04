@@ -1,5 +1,5 @@
 server:
-  port: 9889
+  port: 9888
   context-path: /blog
 
 spring:

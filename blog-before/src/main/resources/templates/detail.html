@@ -14,10 +14,10 @@
     <link th:href="@{/plug/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
     <!--全局样式表-->
     <link th:href="@{/css/global.css}" rel="stylesheet" />
-    <!-- 比较好用的代码着色插件 -->
-    <link th:href="@{/css/prettify.css}" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link th:href="@{/css/detail.css}" rel="stylesheet" />
+    <!-- 本页脚本 -->
+    <script th:src="@{/js/detail.js}"></script>
 </head>
 <body>
 <!-- 导航 -->
@@ -56,17 +56,14 @@
                             </strong>
                         </p>
                         <!--内容-->
-                        <p style="text-align:center;" th:text="${articleContent.content}">
-                        </p>
+                        <div id="doc-content" th:text="${articleContent.content}">
+                        </div>
 
                         <p>
                             <br />
                         </p>
-                        <!--<p>
-                            &nbsp; &nbsp; 点赞不落阁：<a href="http://fly.layui.com/case/2017/" target="_blank"><span style="color:#337FE5;">点击前往</span></a>&nbsp; &nbsp; 完整演示请看后台：<span><a href="http://www.lyblogs.cn/admin" target="_blank"><span style="color:#337FE5;">点击前往</span></a></span>&nbsp; &nbsp; pagesize.js下载地址：<a href="https://pan.baidu.com/s/1kVK8UhT" target="_blank"><span style="color:#337FE5;">点击前往</span></a>
-                        </p>-->
                         <hr />
-                        &nbsp; &nbsp; 出自：不落阁
+                        &nbsp; &nbsp; 出自：xxx
                         <p>
                             &nbsp; &nbsp; 地址：<a href="http://www.lyblogs.cn" target="_blank">www.lyblogs.cn</a>
                         </p>
@@ -167,13 +164,29 @@
 </div>
 <!--遮罩-->
 <div class="blog-mask animated layui-hide"></div>
-<!-- layui.js -->
-<script th:src="@{/plug/layui/layui.js}"></script>
-<!-- 自定义全局脚本 -->
-<script th:src="@{/js/global.js}"></script>
-<!-- 比较好用的代码着色插件 -->
-<script th:src="@{/js/prettify.js}"></script>
-<!-- 本页脚本 -->
-<script th:src="@{/js/detail.js}"></script>
+<script th:src="@{/plug/editor/lib/marked.min.js}"></script>
+<script th:src="@{/plug/editor/lib/prettify.min.js}"></script>
+<script th:src="@{/plug/editor/lib/raphael.min.js}"></script>
+<script th:src="@{/plug/editor/lib/underscore.min.js}"></script>
+<script th:src="@{/plug/editor/lib/sequence-diagram.min.js}"></script>
+<script th:src="@{/plug/editor/lib/flowchart.min.js}"></script>
+<script th:src="@{/plug/editor/lib/jquery.flowchart.min.js}"></script>
+<script th:src="@{/plug/editor/editormd.min.js}"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id
+            htmlDecode: "style,script,iframe",
+            emoji: true,
+            markdown : md,
+            taskList: true,
+            tex: true, // 默认不解析
+            flowChart: true, // 默认不解析
+            sequenceDiagram: true, // 默认不解析
+            codeFold: true,
+        });
+    });
+</script>
 </body>
 </html>

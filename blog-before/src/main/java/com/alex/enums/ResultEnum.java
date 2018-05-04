@@ -18,6 +18,8 @@ public enum  ResultEnum {
     LOGOUT_SUCCESS(404, "登出成功"),
 
     LOGIN_EXCEPTION(004,"用户状态异常"),
+
+    ARTICLE_SAVE_ERROR(001,"文章保存失败"),
     ;
 
     private Integer code;

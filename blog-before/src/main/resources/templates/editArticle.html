@@ -3,103 +3,80 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>文章内容</title>
+    <title>编辑文章</title>
     <link th:href="@{/plug/editor/css/editormd.min.css}" rel="stylesheet" />
     <link rel="shortcut icon" th:href="@{/images/Logo_40.png}" type="image/x-icon">
     <!--Layui-->
     <link th:href="@{/plug/layui/css/layui.css}" rel="stylesheet" />
+
     <!--font-awesome-->
     <link th:href="@{/plug/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
     <!--全局样式表-->
     <link th:href="@{/css/global.css}" rel="stylesheet" />
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script th:src="@{/plug/editor/editormd.min.js}"></script>
-    <script type="text/javascript" th:inline="javascript">
-        var testEditor;
 
-        testEditor=$(function() {
-            editormd("test-editormd", {
-                width   : "90%",
-                height  : 640,
-                //markdown : md,
-                codeFold : true,
-                syncScrolling : "single",
-                //你的lib目录的路径
-                path    : "/plug/editor/lib/",
-                imageUpload: false,//关闭图片上传功能
-                /*  theme: "dark",//工具栏主题
-                 previewTheme: "dark",//预览主题
-                 editorTheme: "pastel-on-dark",//编辑主题 */
-                emoji: false,
-                taskList: true,
-                tocm: true,         // Using [TOCM]
-                tex: true,                   // 开启科学公式TeX语言支持，默认关闭
-                flowChart: true,             // 开启流程图支持，默认关闭
-                sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
-                //这个配置在simple.html中并没有，但是为了能够提交表单，使用这个配置可以让构造出来的HTML代码直接在第二个隐藏的textarea域中，方便post提交表单。
-                saveHTMLToTextarea : true
-            });
-        });
-    </script>
-    <!-- editormd end -->
 </head>
 <body>
 
 <!-- 导航 -->
 <div th:include="nav" />
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<form class="layui-form" action="">
-<!--文章标题-->
-    <div class="layui-form-item">
-        <label class="layui-form-label">标题：</label>
-        <div class="layui-input-block">
-            <input type="text" id="title" required lay-verify="title" placeholder="请输入标题" class="layui-input">
+
+<div class="blog-body">
+    <div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">所在专栏</label>
+            <div class="layui-input-inline">
+                <select name="quiz1">
+                    <option></option>
+                    <option th:each="list:${typeList}" th:value="${list.id}" th:text="${list.typeName}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" id="title" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
+            </div>
         </div>
     </div>
-    <!--文章类型下拉框-->
-    <div class="layui-form-item">
-        <label class="layui-form-label">文章类型：</label>
-        <div class="layui-input-block">
-            <select name="city" lay-verify="required">
-                <option value=""></option>
-                <option value="0">北京</option>
-                <option value="1">上海</option>
-                <option value="2">广州</option>
-                <option value="3">深圳</option>
-                <option value="4">杭州</option>
-            </select>
-        </div>
-    </div>
-    <!-- editormd start -->
-    <div class="editormd" id="test-editormd" style="margin: 100px;">
-        <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
+    <div class="editormd" id="test-editormd" style="margin: 0px;">
+        <textarea class="editormd-markdown-textarea"  name="test-editormd-markdown-doc"></textarea>
         <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
         <!-- html textarea 需要开启配置项 saveHTMLToTextarea == true -->
         <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml" lay-verify="editorhtml"></textarea>
-
-
     </div>
-    <div class="layui-row">
-        <div class="layui-col-md3 layui-col-md-offset3">
-            <button class="layui-btn layui-btn-normal" type="button" id="btn-sub">提 交</button>
-        </div>
-        <div class="layui-col-md3 layui-col-md-offset9">
-            <button class="layui-btn layui-btn-normal" type="button" id="btn-init">清 空</button>
-        </div>
+    <div class="layui-form-item" style="margin: 10px 42%;">
+        <button type="button" id="btn-sub" class="layui-btn">立即发布</button>
+        <button type="reset" class="layui-btn" lay-filter="*" lay-submit="">重置</button>
     </div>
-</form>
-<!-- editormd end -->
+</div>
 
+<!-- 底部 -->
+<div th:include="footer"/>
+
+<script type="text/javascript" th:inline="javascript">
+    var testEditor;
+    testEditor=$(function() {
+        editormd("test-editormd", {
+            width   : "100%",
+            height  : 640,
+            codeFold : true,
+            syncScrolling : "single",
+            //你的lib目录的路径
+            path    : "/plug/editor/lib/",
+            imageUpload: true,
+            emoji: false,
+            taskList: true,
+            tocm: true,
+            saveHTMLToTextarea : true
+        });
+    });
+</script>
+<!-- layui.js -->
+<script th:src="@{/plug/layui/layui.js}"></script>
 <script>
-    $(function(){
-        //获取文章类型
-        window.location.href="/type/typeList";
-    })
+    
     /**
      * 发布文章
      */
@@ -114,8 +91,8 @@
             return false;
         }
         var params = {
-            cover:'', // 文章封面图
-            typeName:'', // 文章类型
+            cover:'https://picsum.photos/200/300/?random', // 文章封面图
+            typeName:'2', // 文章类型
             content:content, // 文章内容
             title:title // 文章标题
         };
@@ -135,11 +112,7 @@
 
 <!--遮罩-->
 <div class="blog-mask animated layui-hide"></div>
-<!-- layui.js -->
-<script src="../plug/layui/layui.js"></script>
-<!-- 全局脚本 -->
-<script src="../js/global.js"></script>
-<!-- 底部 -->
-<div th:include="footer"/>
+
+
 </body>
 </html>
