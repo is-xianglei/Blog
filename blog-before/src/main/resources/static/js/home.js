@@ -33,7 +33,7 @@ layui.use(['jquery','flow'], function () {
                 layui.each(res.data, function(index, item){
                     lis.push('<div class="article shadow">');
                     lis.push('<div class="article-left">');
-                    lis.push('<img lay-src="'+item.cover+'" alt="" style="height:80px;"/>');
+                    lis.push('<img lay-src="'+item.head+'" alt="" style="height:80px;"/>');
                     lis.push('</div>');
                     lis.push('<div class="article-right">');
                     lis.push('<div class="article-title" style="margin: 20px 0px;">');

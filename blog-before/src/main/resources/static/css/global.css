@@ -435,7 +435,8 @@ body {
 
 /*文章列表（网站首页和文章专栏共用）*/
 .article {
-    padding: 15px;
+    /*padding: 15px;*/
+    padding: 0px;
     margin-bottom: 10px;
     background: #fff;
     border-left: 5px solid #fff;
@@ -454,13 +455,17 @@ body {
     }
 
     .article > .article-left {
-        width: 25%;
+        width: 20%;
         float: left;
+        margin: 0px auto;
     }
 
         .article > .article-left > img {
+            border-radius: 50px;
             width: 100%;
+            margin-top: 10px;
             height: auto;
+            margin-left: 14%;
         }
 
     .article > .article-right {
