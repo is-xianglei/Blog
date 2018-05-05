@@ -36,12 +36,9 @@ layui.use(['jquery','flow'], function () {
                     lis.push('<img lay-src="'+item.cover+'" alt="" style="height:80px;"/>');
                     lis.push('</div>');
                     lis.push('<div class="article-right">');
-                    lis.push('<div class="article-title">');
+                    lis.push('<div class="article-title" style="margin: 20px 0px;">');
                     lis.push('<a href="javascript:void(0)">'+item.title+'</a>');
                     lis.push('<input type="hidden" value="'+item.articleId+'">');
-                    lis.push(' </div>');
-                    lis.push(' <div class="article-abstract" text="">');
-                    lis.push(item.content);
                     lis.push(' </div>');
                     lis.push('</div>');
                     lis.push('<div class="clear"></div>');
