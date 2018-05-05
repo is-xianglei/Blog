@@ -8,13 +8,11 @@
     <div class="blog-container">
         <!-- QQ互联登陆 -->
         <a href="/user/index" class="blog-user" style="color: white;font-size: 20px;" th:if="${session.user} == null">
-            <!--<i class="fa fa-qq"></i>-->
-            登&nbsp;陆
-        </a>
-        <a onclick="loginOut()" href="javascript:;" class="blog-user" th:if="${session.user} != null">
-            <img src="" alt="Absolutely" title="Absolutely" th:src="${session.user.head}" />
+            <font color="#c4c5c9" style="font-size: 20px">登&nbsp;陆</font>
         </a>
     </div>
+
+    <div>
         <!-- 不落阁 -->
         <a class="blog-logo" href="/" style="color: #009a61;">Thought</a>
         <!-- 导航菜单 -->
@@ -37,6 +35,18 @@
             <li class="layui-nav-item">
                 <a href="/editArticle"><i class="fa fa-info fa-fw"></i>&nbsp;发表文章</a>
             </li>
+            <ul class="layui-layout-right" style="margin-right: 10%;">
+                <li class="layui-nav-item layui-layout-right">
+                    <a href="/" class="blog-user" th:if="${session.user} != null">
+                        <img th:alt="${session.user.nickname}" th:title="${session.user.nickname}" th:src="${session.user.head}" style="margin:0px 10px;"/>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">基本资料</a></dd>
+                        <dd><a href="/user/loginOut">退了</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
         </ul>
         <!-- 手机和平板的导航开关 -->
         <a class="blog-navicon" href="javascript:;">
@@ -45,12 +55,5 @@
     </div>
 </nav>
 
-<script>
-//退出
-function loginOut(){
-
-    window.location.href="/user/loginOut";
-}
-</script>
 </body>
 </html>

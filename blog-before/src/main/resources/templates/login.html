@@ -62,7 +62,7 @@
 
         var user=/*[[${session.user}]]*/;
 
-        if (user == null){
+        if (user == null || user.code == 200){
             return;
 		}
 		console.log(user);

@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -17,7 +16,7 @@
     <!-- 本页样式表 -->
     <link th:href="@{/css/detail.css}" rel="stylesheet" />
     <!-- 本页脚本 -->
-    <script th:src="@{/js/detail.js}"></script>
+    <!--<script th:src="@{/js/detail.js}"></script>-->
 </head>
 <body>
 <!-- 导航 -->
@@ -35,18 +34,15 @@
             <div class="blog-main-left">
                 <!-- 文章内容（使用Kingeditor富文本编辑器发表的） -->
                 <div class="article-detail shadow">
-                    <!--<div class="article-detail-title">
-                        基于laypage的layui扩展模块（pagesize.js）！
-                    </div>-->
                     <div class="article-detail-info">
-                        编辑时间：<span th:text="${#dates.format(articleContent.create_data, 'yyyy-MM-dd')}">2017/3/18 17:30:2</span>
+                        编辑时间：<span th:text="${#dates.format(articleContent.create_data, 'yyyy-MM-dd')}"></span>
                         作者：<span th:text="${articleContent.nickname}"></span>
                         <span>浏览量：12</span>
                     </div>
                     <div class="article-detail-content">
                         <!--文章标题-->
                         <p style="text-align:center;">
-                            <strong><span style="font-size:18px;" th:text="${articleContent.title}">小赌为快</span></strong>
+                            <strong><span style="font-size:18px;" th:text="${articleContent.title}"></span></strong>
                         </p>
                         <p style="text-align:center;">
                             <strong>
@@ -56,7 +52,8 @@
                             </strong>
                         </p>
                         <!--内容-->
-                        <div id="doc-content" th:text="${articleContent.content}">
+                        <div id="doc-content">
+                            <textarea id="con" style="display:none;" th:text="${articleContent.content}"></textarea>
                         </div>
 
                         <p>
@@ -164,28 +161,11 @@
 </div>
 <!--遮罩-->
 <div class="blog-mask animated layui-hide"></div>
-<script th:src="@{/plug/editor/lib/marked.min.js}"></script>
-<script th:src="@{/plug/editor/lib/prettify.min.js}"></script>
-<script th:src="@{/plug/editor/lib/raphael.min.js}"></script>
-<script th:src="@{/plug/editor/lib/underscore.min.js}"></script>
-<script th:src="@{/plug/editor/lib/sequence-diagram.min.js}"></script>
-<script th:src="@{/plug/editor/lib/flowchart.min.js}"></script>
-<script th:src="@{/plug/editor/lib/jquery.flowchart.min.js}"></script>
-<script th:src="@{/plug/editor/editormd.min.js}"></script>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script th:src="@{/plug/layui/layui.js}"></script>
+
 <script type="text/javascript">
-    var testEditor;
-    $(function () {
-        testEditor = editormd.markdownToHTML("doc-content", {//注意：这里是上面DIV的id
-            htmlDecode: "style,script,iframe",
-            emoji: true,
-            markdown : md,
-            taskList: true,
-            tex: true, // 默认不解析
-            flowChart: true, // 默认不解析
-            sequenceDiagram: true, // 默认不解析
-            codeFold: true,
-        });
+    layui.use(['jquery'],function () {
+        var $ = layui.jquery;
     });
 </script>
 </body>

@@ -56,7 +56,6 @@ public class IndexController {
      */
     @GetMapping(value = "/editArticle")
     public String editArticle(Model model){
-
         List<Type> typeList = articleService.getTypeList();
         model.addAttribute("typeList",typeList);
 
