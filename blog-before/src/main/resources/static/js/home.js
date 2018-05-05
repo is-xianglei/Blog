@@ -29,11 +29,8 @@ layui.use(['jquery','flow'], function () {
             var lis = [];
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
             $.get('/index/?page='+page, function(res){
-                console.log(res)
-
                 //假设你的列表返回在data集合中
                 layui.each(res.data, function(index, item){
-                    console.log(item);
                     lis.push('<div class="article shadow">');
                     lis.push('<div class="article-left">');
                     lis.push('<img lay-src="'+item.cover+'" alt="" style="height:80px;"/>');

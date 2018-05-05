@@ -32,7 +32,7 @@ public class IndexController {
     @ResponseBody
     public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam(value = "page",defaultValue = "1")Integer page){
 
-        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 2, "", "");
+        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 6, "", "");
 
         request.getSession().setAttribute("ResultVO",articleAll);
 

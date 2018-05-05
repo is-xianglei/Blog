@@ -54,6 +54,22 @@
 	</div>
 </div>
 <![endif]-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+	layui.use(['jquery','layer'],function () {
+		var $ = layui.jquery;
+		var layer = layui.layer;
 
+        var user=/*[[${session.user}]]*/;
+
+        if (user == null){
+            return;
+		}
+		console.log(user);
+        layer.msg(user.msg, {icon: 5});
+
+    });
+    /*]]>*/
+</script>
 </body>
 </html>

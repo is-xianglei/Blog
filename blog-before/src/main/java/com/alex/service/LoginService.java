@@ -1,6 +1,7 @@
 package com.alex.service;
 
 import com.alex.entity.User;
+import com.alex.entity.utils.UserResult;
 
 /**
  * @author Alex isidea@outlook.com
@@ -14,7 +15,7 @@ public interface LoginService {
      * @param user
      * @return
      */
-    User login(User user);
+    UserResult<User> login(User user);
 
     /**
      * 用户修改密码

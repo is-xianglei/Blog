@@ -1,6 +1,8 @@
 package com.alex.controller;
 
 import com.alex.entity.User;
+import com.alex.entity.utils.UserResult;
+import com.alex.enums.UserEnum;
 import com.alex.service.ArticleService;
 import com.alex.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +47,17 @@ public class LoginController {
     @PostMapping(value = "/login")
     public String login(User user,HttpServletRequest request){
 
-        User login = loginService.login(user);
+        UserResult<User> userResult = loginService.login(user);
 
-        request.getSession().setAttribute("user",login);
+        // 用户登陆成功后将信息存入session
+        if (userResult.getCode() == UserEnum.USER_LOGIN_SUCCESS.getCode()){
+            request.getSession().setAttribute("user",userResult.getData());
+            return "redirect:/";
+        }
 
-        return "redirect:/";
+        request.getSession().setAttribute("user",userResult);
+        return "login";
+
     }
 
 }
