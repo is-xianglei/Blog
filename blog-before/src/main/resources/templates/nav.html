@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <body>
 
@@ -7,13 +7,14 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
         <!-- QQ互联登陆 -->
-        <a href="/user/index" class="blog-user" style="color: white;font-size: 20px;">
+        <a href="/user/index" class="blog-user" style="color: white;font-size: 20px;" th:if="${session.user} == null">
             <!--<i class="fa fa-qq"></i>-->
             登&nbsp;陆
         </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="../images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
+        <a onclick="loginOut()" href="javascript:;" class="blog-user" th:if="${session.user} != null">
+            <img src="" alt="Absolutely" title="Absolutely" th:src="${session.user.head}" />
         </a>
+    </div>
         <!-- 不落阁 -->
         <a class="blog-logo" href="/" style="color: #009a61;">Thought</a>
         <!-- 导航菜单 -->
@@ -44,5 +45,12 @@
     </div>
 </nav>
 
+<script>
+//退出
+function loginOut(){
+
+    window.location.href="/user/loginOut";
+}
+</script>
 </body>
 </html>
