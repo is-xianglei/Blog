@@ -2,8 +2,10 @@ package com.alex.controller;
 
 import com.alex.entity.Type;
 import com.alex.entity.vo.ArticleVO;
+import com.alex.entity.vo.HotArticle;
 import com.alex.entity.vo.ResultVO;
 import com.alex.service.ArticleService;
+import com.alex.service.HotService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class IndexController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private HotService hotArticle;
+
     /**
      * 访问首页展示文章列表信息内容
      * @return
@@ -33,10 +38,14 @@ public class IndexController {
     public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam(value = "page",defaultValue = "1")Integer page){
 
         ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 6, "", "");
-
-        request.getSession().setAttribute("ResultVO",articleAll);
-
         return articleAll;
+    }
+
+    @GetMapping(value = "/index/hotArticle")
+    @ResponseBody
+    public List<HotArticle> getHotArticle(){
+        List<HotArticle> articleVOS = hotArticle.hotArticle();
+        return articleVOS;
     }
 
     /**

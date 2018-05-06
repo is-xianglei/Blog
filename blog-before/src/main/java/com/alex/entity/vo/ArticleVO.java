@@ -41,4 +41,5 @@ public class ArticleVO {
     /** 文章类别id */
     private String type_id;
 
+
 }

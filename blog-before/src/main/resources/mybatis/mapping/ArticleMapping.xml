@@ -115,4 +115,30 @@
         type;
     </select>
 
+    <resultMap id="mappingHotArticle" type="com.alex.entity.vo.HotArticle">
+        <id column="id" property="hotArticleID"/>
+        <result column="title" property="hotArticleTitle"/>
+    </resultMap>
+    <select id="hotArticle" resultMap="mappingHotArticle">
+    SELECT
+      ar.title, -- 文章标题
+      ar.id -- 文章ID
+    FROM
+      article AS ar
+    WHERE
+      ar.id
+    IN
+      (
+        SELECT
+          co.article_id
+        FROM
+          comment AS co
+        GROUP BY
+          co.article_id
+        ORDER BY
+          co.article_id
+      )
+      LIMIT
+        0,10
+    </select>
 </mapper>

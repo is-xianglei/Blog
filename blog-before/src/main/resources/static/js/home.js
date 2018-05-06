@@ -65,6 +65,7 @@ layui.use(['jquery','flow'], function () {
         var articleId = $(this).parents('.article-title').find('input').val();
         window.location.href="/article/articleContent?articleId="+articleId;
     })
+
 });
 
 function DrawCanvas() {

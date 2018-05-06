@@ -43,8 +43,9 @@ public class ArticleServiceImpl implements ArticleService {
         int begin = (page -1)*limit;
         // 设置总页数
         resultVO.setTotalPage(articleCount / limit);
-
+        // 分页查询文章记录数
         List<ArticleVO> articleAll = articleMapper.findArticleAll(begin, limit, search, type);
+
         resultVO.setData(articleAll);
         resultVO.setCode(ResultEnum.SUCCESS.getCode());
         resultVO.setMessage(ResultEnum.SUCCESS.getMessage());

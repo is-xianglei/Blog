@@ -3,6 +3,7 @@ package com.alex.mapper;
 import com.alex.entity.Type;
 import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
+import com.alex.entity.vo.HotArticle;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -53,5 +54,7 @@ public interface ArticleMapper {
      * @return
      */
     List<Type> selectTypeList();
+
+    List<HotArticle> hotArticle();
 
 }
