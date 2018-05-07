@@ -38,6 +38,7 @@
             <div class="blog-main-left">
                 <!-- 文章内容（使用Kingeditor富文本编辑器发表的） -->
                 <div class="article-detail shadow">
+                    <input type="hidden" id="articleId" th:value="${articleContent.articleId}">
                     <div class="article-detail-info">
                         编辑时间：<span th:text="${#dates.format(articleContent.create_data, 'yyyy-MM-dd')}"></span>
                         作者：<span th:text="${articleContent.nickname}"></span>
@@ -85,18 +86,16 @@
                         <legend>来说两句吧</legend>
                         <div class="layui-field-box">
                             <form class="layui-form blog-editor" action="">
+                                <textarea id="commentText" name="" required lay-verify="required" placeholder="请输入评论内容。。。" class="layui-textarea"></textarea>
                                 <div class="layui-form-item">
-                                    <textarea name="editorContent" lay-verify="content" id="remarkEditor" placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
-                                </div>
-                                <div class="layui-form-item">
-                                    <button class="layui-btn" lay-submit="formRemark" lay-filter="formRemark">提交评论</button>
+                                    <button id="comment" class="layui-btn" type="button">提交评论</button>
                                 </div>
                             </form>
                         </div>
                     </fieldset>
                     <div class="blog-module-title">最新评论</div>
-                    <ul class="blog-comment">
-                        <li>
+                    <ul class="blog-comment" id="commentList">
+                        <!--<li>
                             <div class="comment-parent">
                                 <img src="../images/Absolutely.jpg" alt="absolutely" />
                                 <div class="info">
@@ -107,7 +106,7 @@
                                     我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
                                 </div>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -168,9 +167,44 @@
 </div>
 <!--遮罩-->
 <div class="blog-mask animated layui-hide"></div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script th:src="@{/plug/layui/layui.js}"></script>
 <!-- 代码主题 -->
 <link th:href="@{/css/darcula.css}" rel="stylesheet" />
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    hljs.initHighlightingOnLoad();
+    $('#comment').on('click',function(){
+        var content = $('#commentText').val();
+        var articleId = $('#articleId').val();
+        $.ajax({
+            type: 'POST',
+            url: '/comment/addComment',
+            data:{'content':content,'articleId':articleId},
+            success: function(result){
+                console.log(result)
+                var html = '';
+                $(result.data).each(function(index,element){
+                    console.log(element.id);
+                    console.log(element.content);
+                    console.log(element.create_data);
+                    html+='<li>';
+                    html+='<div class="omment-parent">';
+                    html+='<img src="'+element.head+'" alt="absolutely" />';
+                    html+='<div class="info">';
+                    html+='<span class="username">"'+element.nickname+'"</span>';
+                    html+='<span class="time">"'+element.create_data+'"</span>';
+                    html+='</div>';
+                    html+='</div>';
+                    html+='</li>';
+                });
+                $("#commentList").append(html);
+            },
+            error: function(){
+
+            }
+        })
+    });
+
+</script>
 </body>
 </html>
