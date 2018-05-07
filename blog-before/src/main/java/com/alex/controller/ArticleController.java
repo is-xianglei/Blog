@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 /**
  * @author Alex isidea@outlook.com
@@ -45,22 +46,21 @@ public class ArticleController {
 
         User user = (User) request.getSession().getAttribute("user");
         // 获取并设置发表文章的用户ID
-        String id = user.getId();
-        articleFrom.setUserID(id);
+        articleFrom.setUserID(user.getId());
 
         // 设置文章ID
         articleFrom.setArticleID(UUIDUtils.getUUID());
 
         // 设置封面图信息
         articleFrom.setPhoto(articleFrom.getPhoto());
+
         // 设置类型ID
         articleFrom.setTypeID(articleFrom.getTypeID());
 
         // 插入数据后查询出用户刚才编写的文章并用户带到详情页展示文章
-        String articleID = articleService.addArticle(articleFrom);
 
         Map<String,String> map = new HashMap<>(16);
-        map.put("articleID",articleID);
+        map.put("articleID",articleService.addArticle(articleFrom));
         return map;
 
     }
