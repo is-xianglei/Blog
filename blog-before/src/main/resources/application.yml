@@ -46,7 +46,22 @@ spring:
     # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
-    #useGlobalDataSourceStat: true
+      #useGlobalDataSourceStat: true
+
+  redis:
+    host: 39.106.149.250
+    database: 0
+    port: 6379
+    password: zhangzhe1518
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: 1
+        max-idle: 8
+    timeout: 10000
+
+
+
 mybatis:
   mapper-locations: classpath:mybatis/mapping/*.xml
   type-aliases-package: com.alex.entity
