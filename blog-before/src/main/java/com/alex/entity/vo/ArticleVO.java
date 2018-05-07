@@ -30,7 +30,7 @@ public class ArticleVO {
     private String head;
 
     /** 发表时间 */
-    private Date create_data;
+    private String create_data;
 
     /** 文章内容 */
     private String content;

@@ -43,7 +43,7 @@ layui.use(['jquery','flow'], function () {
                     lis.push('</div>');
                     lis.push('<div class="clear"></div>');
                     lis.push('<div class="article-footer">');
-                    lis.push('<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;'+item.create_data.replace("T"," ").substring(0,16)+'</span>');
+                    lis.push('<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;'+item.create_data+'</span>');
                     lis.push('<span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;'+item.nickname+'</span>');
                     lis.push('<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">'+item.typeName+'</a></span>');
                     lis.push('<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>');

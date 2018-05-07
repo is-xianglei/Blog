@@ -8,11 +8,13 @@ import com.alex.enums.ResultEnum;
 import com.alex.exception.BlogException;
 import com.alex.mapper.ArticleMapper;
 import com.alex.service.ArticleService;
+import com.alex.utils.DateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 文章相关业务
@@ -45,7 +47,14 @@ public class ArticleServiceImpl implements ArticleService {
         // 分页查询文章记录数
         List<ArticleVO> articleAll = articleMapper.findArticleAll(begin, limit, search, type);
 
-        resultVO.setData(articleAll);
+        // 转换时间格式
+        List<ArticleVO> articles = articleAll.stream().peek(
+                o -> {
+                    o.setCreate_data(DateUtil.getDateByFormat(o.getCreate_data(), "yyyy-MM-dd HH:mm:ss").toLocaleString());
+                }
+        ).collect(Collectors.toList());
+
+        resultVO.setData(articles);
         resultVO.setCode(ResultEnum.SUCCESS.getCode());
         resultVO.setMessage(ResultEnum.SUCCESS.getMessage());
 
