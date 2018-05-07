@@ -55,6 +55,11 @@ public interface ArticleMapper {
      */
     List<Type> selectTypeList();
 
+    /**
+     * 查询热门文章(按照评论数查询，查前10条)
+     *
+     * @return
+     */
     List<HotArticle> hotArticle();
 
 }

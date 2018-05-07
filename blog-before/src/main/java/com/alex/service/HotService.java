@@ -1,8 +1,6 @@
 package com.alex.service;
 
-import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.HotArticle;
-
 import java.util.List;
 
 /**
@@ -15,6 +13,11 @@ import java.util.List;
  */
 public interface HotService {
 
+    /**
+     * 查找热门文章，按照评论数来查询前10条
+     *
+     * @return
+     */
     List<HotArticle> hotArticle();
 
 }

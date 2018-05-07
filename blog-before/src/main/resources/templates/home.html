@@ -44,7 +44,7 @@
                         <span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作，为大家准备了游客专用账号！</span>
                         <span style="color: red">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
                         <span style="color: red">如果你觉得网站做得还不错，来Fly社区点个赞吧！<a href="http://fly.layui.com/case/2017/" target="_blank" style="color:#01AAED">点我前往</a></span>
-                        <span style="color: #009688">不落阁 &nbsp;—— &nbsp;一个.NET程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
+                        <span style="color: #009688">Thought &nbsp;—— &nbsp;一个.NET程序员的个人博客，新版网站采用Layui为前端框架，目前正在建设中！</span>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                     <div th:if="${session.user} != null">
                         <div class="blogerinfo shadow">
                             <div class="blogerinfo-figure">
-                                <img src="../images/Absolutely.jpg" alt="Absolutely" />
+                                <img th:src="${session.user.head}" th:alt="${session.user.nickname}" />
                             </div>
                             <p class="blogerinfo-nickname"></p>
                             <p class="blogerinfo-introduce" th:text="${session.user.nickname}"></p>
@@ -95,7 +95,7 @@
                             <dt>2017年03月12日</dt>
                             <dd>新增留言回复功能！人人都可参与回复！</dd>
                             <dt>2017年03月10日</dt>
-                            <dd>不落阁2.0基本功能完成，正式上线！</dd>
+                            <dd>Thought2.0基本功能完成，正式上线！</dd>
                             <dt>2017年03月09日</dt>
                             <dd>新增文章搜索功能！</dd>
                             <dt>2017年02月25日</dt>
@@ -173,10 +173,7 @@
             });
         });
         $(document).on('click','#hot li a',function(){
-
             var hotID = $(this).parents('li').find('input').val();
-            console.log(hotID);
-            alert(hotID);
             if(hotID != null || hotID != '')
                 window.location.href="/article/articleContent?articleId="+hotID;
         });

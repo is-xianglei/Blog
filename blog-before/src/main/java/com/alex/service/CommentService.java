@@ -2,7 +2,6 @@ package com.alex.service;
 
 import com.alex.entity.Comment;
 import com.alex.entity.vo.CommentVo;
-
 import java.util.List;
 
 /**
@@ -16,12 +15,12 @@ public interface CommentService {
      * @param comment
      * @return
      */
-    public int addComment(Comment comment);
+     int addComment(Comment comment);
 
     /**
      * 通过文章id查询当前文章的评论列表
      * @param articleId
      * @return
      */
-    public List<CommentVo> getCommentList(String articleId);
+     List<CommentVo> getCommentList(String articleId);
 }

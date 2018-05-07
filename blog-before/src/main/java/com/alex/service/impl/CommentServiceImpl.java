@@ -2,8 +2,11 @@ package com.alex.service.impl;
 
 import com.alex.entity.Comment;
 import com.alex.entity.vo.CommentVo;
+import com.alex.enums.ResultEnum;
+import com.alex.exception.BlogException;
 import com.alex.mapper.CommentMapper;
 import com.alex.service.CommentService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,24 +17,29 @@ import java.util.List;
  * @author zhangzhe
  **/
 @Service
+@Slf4j
 public class CommentServiceImpl implements CommentService{
 
     @Autowired
     private CommentMapper commentMapper;
+
     /**
-     * 提交评论
-     * @param comment
-     * @return
+     * @see CommentService#addComment(com.alex.entity.Comment)
      */
     @Override
     public int addComment(Comment comment) {
-        return commentMapper.addComment(comment);
+
+        try{
+            int i = commentMapper.addComment(comment);
+            return i;
+        }catch (Exception e){
+            log.info(ResultEnum.COMMENT_SAVE_ERROR.getMessage());
+            throw new BlogException(ResultEnum.COMMENT_SAVE_ERROR.getMessage(),ResultEnum.COMMENT_SAVE_ERROR.getCode());
+        }
     }
 
     /**
-     * 查询文章的评论列表
-     * @param articleId
-     * @return
+     * @see CommentService#getCommentList(java.lang.String)
      */
     @Override
     public List<CommentVo> getCommentList(String articleId) {

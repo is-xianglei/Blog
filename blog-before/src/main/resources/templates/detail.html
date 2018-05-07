@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>不落阁 - 文章专栏 - 基于layui的laypage扩展模块！</title>
+    <title>Thought - 文章专栏 - 基于layui的laypage扩展模块！</title>
     <link rel="shortcut icon" th:href="@{/images/Logo_40.png}" type="image/x-icon">
     <!--Layui-->
     <link th:href="@{/plug/layui/css/layui.css}" rel="stylesheet" />
@@ -85,28 +85,32 @@
                     <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
                         <legend>来说两句吧</legend>
                         <div class="layui-field-box">
-                            <form class="layui-form blog-editor" action="">
-                                <textarea id="commentText" name="" required lay-verify="required" placeholder="请输入评论内容。。。" class="layui-textarea"></textarea>
-                                <div class="layui-form-item">
-                                    <button id="comment" class="layui-btn" type="button">提交评论</button>
+                            <form class="layui-form blog-editor" th:action="@{/comment/addComment}" method="post">
+                                <input type="hidden" name="articleId" th:value="${articleContent.articleId}"/>
+                                <textarea id="commentText" name="commentContent" required lay-verify="required" placeholder="请输入评论内容..." class="layui-textarea"></textarea>
+                                <div class="layui-form-item" th:if="${session.user != null}">
+                                    <button id="comment" class="layui-btn" lay-submit>提交评论</button>
+                                </div>
+                                <div class="layui-form-item" th:if="${session.user == null}">
+                                    <button class="layui-btn" onclick="gotoLogin();" type="button">去登录</button>
                                 </div>
                             </form>
                         </div>
                     </fieldset>
                     <div class="blog-module-title">最新评论</div>
-                    <ul class="blog-comment" id="commentList">
-                        <!--<li>
+                    <ul class="blog-comment" id="commentList" th:each="con:${commentList}">
+                        <li>
                             <div class="comment-parent">
-                                <img src="../images/Absolutely.jpg" alt="absolutely" />
+                                <img th:src="${con.head}" th:alt="${con.nickname}" />
                                 <div class="info">
-                                    <span class="username">Absolutely</span>
-                                    <span class="time">2017-03-18 18:46:06</span>
+                                    <span class="username" th:text="${con.nickname}"></span>
+                                    <span class="time" th:text="${#dates.format(con.create_data,'yyyy-MM-dd hh:mm:ss')}"></span>
                                 </div>
-                                <div class="content">
-                                    我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
+                                <div class="content" th:text="${con.content}">
+
                                 </div>
                             </div>
-                        </li>-->
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -173,37 +177,10 @@
 <link th:href="@{/css/darcula.css}" rel="stylesheet" />
 <script>
     hljs.initHighlightingOnLoad();
-    $('#comment').on('click',function(){
-        var content = $('#commentText').val();
-        var articleId = $('#articleId').val();
-        $.ajax({
-            type: 'POST',
-            url: '/comment/addComment',
-            data:{'content':content,'articleId':articleId},
-            success: function(result){
-                console.log(result)
-                var html = '';
-                $(result.data).each(function(index,element){
-                    console.log(element.id);
-                    console.log(element.content);
-                    console.log(element.create_data);
-                    html+='<li>';
-                    html+='<div class="omment-parent">';
-                    html+='<img src="'+element.head+'" alt="absolutely" />';
-                    html+='<div class="info">';
-                    html+='<span class="username">"'+element.nickname+'"</span>';
-                    html+='<span class="time">"'+element.create_data+'"</span>';
-                    html+='</div>';
-                    html+='</div>';
-                    html+='</li>';
-                });
-                $("#commentList").append(html);
-            },
-            error: function(){
 
-            }
-        })
-    });
+    function gotoLogin() {
+        window.location.href='/user/index';
+    }
 
 </script>
 </body>

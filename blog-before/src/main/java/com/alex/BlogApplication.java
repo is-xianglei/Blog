@@ -3,7 +3,6 @@ package com.alex;
 import com.alex.entity.vo.ResultVO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -14,7 +14,8 @@ public class SessionConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/editArticle");
+        registry.addInterceptor(new SessionInterceptor())
+                .addPathPatterns("/editArticle");
 
     }
 }

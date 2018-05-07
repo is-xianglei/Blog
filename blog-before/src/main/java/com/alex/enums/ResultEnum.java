@@ -20,6 +20,10 @@ public enum  ResultEnum {
     LOGIN_EXCEPTION(004,"用户状态异常"),
 
     ARTICLE_SAVE_ERROR(001,"文章保存失败"),
+
+    COMMENT_SAVE_SUCCESS(002,"评论成功"),
+
+    COMMENT_SAVE_ERROR(003,"评论失败"),
     ;
 
     private Integer code;

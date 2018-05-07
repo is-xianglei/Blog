@@ -4,7 +4,6 @@ import com.alex.entity.Comment;
 import com.alex.entity.vo.CommentVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 /**
@@ -21,5 +20,12 @@ public interface CommentMapper {
      */
     int addComment(@Param("comment") Comment comment);
 
+    /**
+     * 根据文章ID查找所有的评论内容
+     *
+     * @param articleId
+     * @return
+     */
     List<CommentVo> selectCommentList(String articleId);
+
 }

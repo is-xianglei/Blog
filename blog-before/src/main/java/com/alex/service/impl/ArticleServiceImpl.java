@@ -9,7 +9,6 @@ import com.alex.exception.BlogException;
 import com.alex.mapper.ArticleMapper;
 import com.alex.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -75,8 +74,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     /**
      * @see ArticleService#selectByArticleId(String)
-     * @param articleId
-     * @return
      */
     @Override
     public ArticleVO selectByArticleId(String articleId) {

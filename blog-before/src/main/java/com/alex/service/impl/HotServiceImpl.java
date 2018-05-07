@@ -1,12 +1,10 @@
 package com.alex.service.impl;
 
-import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.HotArticle;
 import com.alex.mapper.ArticleMapper;
 import com.alex.service.HotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -23,6 +21,9 @@ public class HotServiceImpl implements HotService {
     @Autowired
     private ArticleMapper articleMapper;
 
+    /**
+     * @see HotService#hotArticle()
+     */
     @Override
     public List<HotArticle> hotArticle() {
         return articleMapper.hotArticle();

@@ -3,7 +3,9 @@ package com.alex.controller;
 import com.alex.entity.User;
 import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
+import com.alex.entity.vo.CommentVo;
 import com.alex.service.ArticleService;
+import com.alex.service.CommentService;
 import com.alex.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +29,9 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private CommentService commentService;
 
     /**
      * 处理用户发表的文章信息发表成功后在详情页展示用户发表的文章
@@ -67,9 +73,14 @@ public class ArticleController {
     @RequestMapping("/articleContent")
     public String articleContent(String articleId, Model model){
 
+        // 通过ID获取文章内容详情
         ArticleVO articleContent = articleService.selectByArticleId(articleId);
 
+        // 通过文章ID获取评论列表
+        List<CommentVo> commentList = commentService.getCommentList(articleId);
+
         model.addAttribute("articleContent", articleContent);
+        model.addAttribute("commentList",commentList);
 
         return "detail";
     }

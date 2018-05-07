@@ -11,6 +11,12 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface LoginMapper {
 
+    /**
+     * 用户登录
+     *
+     * @param user
+     * @return
+     */
     User login(@Param("user")User user);
 
 }

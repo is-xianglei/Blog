@@ -41,6 +41,11 @@ public class IndexController {
         return articleAll;
     }
 
+    /**
+     * 显示热门文章
+     *
+     * @return
+     */
     @GetMapping(value = "/index/hotArticle")
     @ResponseBody
     public List<HotArticle> getHotArticle(){
@@ -70,6 +75,17 @@ public class IndexController {
 
         return "editArticle";
 
+    }
+
+    /**
+     * 转发到文章专栏页面
+     *
+     * @return
+     */
+    @GetMapping(value = "/article")
+    public String getArticleHtml(){
+
+        return "article";
     }
 
 
