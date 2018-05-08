@@ -40,7 +40,7 @@
                 <div class="article-detail shadow">
                     <input type="hidden" id="articleId" th:value="${articleContent.articleId}">
                     <div class="article-detail-info">
-                        编辑时间：<span th:text="${#dates.format(articleContent.create_data, 'yyyy-MM-dd')}"></span>
+                        编辑时间：<span th:text="${articleContent.create_data.substring(0,16)}"></span>
                         作者：<span th:text="${articleContent.nickname}"></span>
                         <span>浏览量：12</span>
                     </div>
