@@ -34,9 +34,6 @@ public class LoginController {
     private LoginService loginService;
 
     @Autowired
-    private ArticleService articleService;
-
-    @Autowired
     private JedisPool jedisPool;
 
     /**

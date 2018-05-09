@@ -7,10 +7,13 @@ import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
+ * Jedis连接池配置
+ *
  * @Author: Alex isidea@outlook.com
  * @Date: 2018/5/7 0007 16:45
  */
