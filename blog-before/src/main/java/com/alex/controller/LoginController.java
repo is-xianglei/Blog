@@ -1,9 +1,11 @@
 package com.alex.controller;
 
 import com.alex.entity.User;
+import com.alex.entity.from.RegisterFrom;
 import com.alex.entity.utils.UserResult;
 import com.alex.enums.UserEnum;
 import com.alex.service.LoginService;
+import com.alex.service.UserService;
 import com.alex.utils.CookieUtils;
 import com.alex.utils.JSONUtils;
 import com.alex.utils.UUIDUtils;
@@ -16,6 +18,8 @@ import redis.clients.jedis.JedisPool;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 用户登陆
@@ -29,6 +33,9 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private JedisPool jedisPool;
@@ -93,6 +100,41 @@ public class LoginController {
         return "login";
     }
 
+    /**
+     * 注册页面
+     * @return
+     */
+    @RequestMapping(value = "/registerView")
+    public String register(){
+        return "register";
+    }
+
+    /**
+     * 用户注册
+     * @param registerFrom
+     * @return
+     */
+    @RequestMapping(value = "/register")
+    public String register(RegisterFrom registerFrom){
+        //初始化一个map存放用户信息
+        Map<String,Object> registerMap = new HashMap<>();
+        //获取用户uuid
+        String userId = UUIDUtils.getUUID();
+        registerMap.put("id",userId);
+        registerMap.put("nickname",registerFrom.getNickname());
+        registerMap.put("email",registerFrom.getEmail());
+        //暂时写死
+        registerMap.put("gender","男");
+        registerMap.put("explain",registerFrom.getExplain());
+        registerMap.put("password",registerFrom.getPassword());
+        //暂时写死
+        registerMap.put("head","https://picsum.photos/200/300?image=0");
+        //默认设置用户状态为未激活0
+        registerMap.put("state",UserEnum.USER_STATE_WARING.getCode());
+        int num = userService.userRegister(registerMap);
+        return null;
+
+    }
 
 
 }

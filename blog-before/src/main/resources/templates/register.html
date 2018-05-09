@@ -34,12 +34,13 @@
 	<div class="logo">
 		<img th:src="@{/login/img/logo.png}" alt="">
 	</div>
-	<form id="my-form" class="layui-form" th:action="@{/user/login}" method="post">
+	<form id="my-form" class="layui-form" th:action="@{/user/register}" method="post">
 		<ul class="login-list">
-			<li><input type="text" name="email" value="isidea@outlook.com" placeholder="请输入邮箱"></li>
-			<li><input type="password" name="password" value="666666" placeholder="请输入密码"></li>
-			<li><button class="btn" type="submit">登录</button></li>
-			<li class="tar"><a href="/user/registerView">还没账号？</a></li>
+			<li><input type="text" name="email" value="" placeholder="请输入邮箱"></li>
+			<li><input type="password" name="password" value="" placeholder="请输入密码"></li>
+			<li><input type="text" name="nickname" value="" placeholder="请输入昵称"></li>
+			<li><input type="text" name="explain" value="" maxlength="15" placeholder="请输入15个字以内签名。。。"></li>
+			<li><button class="btn" type="submit">注 册</button></li>
 		</ul>
 	</form>
 </div>
