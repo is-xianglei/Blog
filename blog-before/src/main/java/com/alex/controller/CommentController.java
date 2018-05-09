@@ -3,6 +3,7 @@ package com.alex.controller;
 import com.alex.entity.Comment;
 import com.alex.entity.User;
 import com.alex.service.CommentService;
+import com.alex.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,7 +35,8 @@ public class CommentController {
         Comment com = new Comment();
         com.setArticle_id(articleId);
         com.setContent(content);
-        com.setId(user.getId());
+        com.setId(UUIDUtils.getUUID());
+        com.setUser_id(user.getId());
         com.setCreate_data(new Date());
 
         int n = commentService.addComment(com);
