@@ -33,11 +33,11 @@ public class CommentController {
     public String addComment(@RequestParam("commentContent") String content, @RequestParam("articleId")String articleId, HttpSession session){
         User user = (User) session.getAttribute("user");
         Comment com = new Comment();
-        com.setArticle_id(articleId);
+        com.setArticleID(articleId);
         com.setContent(content);
         com.setId(UUIDUtils.getUUID());
-        com.setUser_id(user.getId());
-        com.setCreate_data(new Date());
+        com.setUserID(user.getId());
+        com.setCreateDate(new Date());
 
         int n = commentService.addComment(com);
         //评论成功把评轮信息返回出去

@@ -3,7 +3,6 @@ package com.alex.controller;
 import com.alex.entity.User;
 import com.alex.entity.utils.UserResult;
 import com.alex.enums.UserEnum;
-import com.alex.service.ArticleService;
 import com.alex.service.LoginService;
 import com.alex.utils.CookieUtils;
 import com.alex.utils.JSONUtils;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import redis.clients.jedis.JedisPool;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

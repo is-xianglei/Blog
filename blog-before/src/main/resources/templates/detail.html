@@ -40,7 +40,7 @@
                 <div class="article-detail shadow">
                     <input type="hidden" id="articleId" th:value="${articleContent.articleId}">
                     <div class="article-detail-info">
-                        编辑时间：<span th:text="${articleContent.create_data.substring(0,16)}"></span>
+                        编辑时间：<span th:text="${articleContent.createDate.substring(0,16)}"></span>
                         作者：<span th:text="${articleContent.nickname}"></span>
                         <span>浏览量：12</span>
                     </div>
@@ -104,7 +104,7 @@
                                 <img th:src="${con.head}" th:alt="${con.nickname}" />
                                 <div class="info">
                                     <span class="username" th:text="${con.nickname}"></span>
-                                    <span class="time" th:text="${#dates.format(con.create_data,'yyyy-MM-dd hh:mm:ss')}"></span>
+                                    <span class="time" th:text="${#dates.format(con.createDate,'yyyy-MM-dd hh:mm:ss')}"></span>
                                 </div>
                                 <div class="content" th:text="${con.content}">
 

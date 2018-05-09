@@ -5,28 +5,37 @@
 
     <resultMap id="commentMap" type="com.alex.entity.vo.CommentVo">
         <id column="id" property="id"/>
-        <result column="user_id" property="user_id"/>
+        <result column="user_id" property="userID"/>
         <result column="content" property="content"/>
-        <result column="create_data" property="create_data"/>
+        <result column="create_data" property="createDate"/>
         <result column="head" property="head"/>
         <result column="nickname" property="nickname"/>
     </resultMap>
     <!--添加评论-->
     <insert id="addComment">
-      insert into comment (id,create_data,user_id,article_id,content)
-      values (#{comment.id},#{comment.create_data},#{comment.user_id},#{comment.article_id},#{comment.content});
+      insert into comment (id,createDate,userID,articleID,content)
+      values (#{comment.id},#{comment.createDate},#{comment.userID},#{comment.articleID},#{comment.content});
     </insert>
 
     <!--查询评论列表-->
     <select id="selectCommentList" resultMap="commentMap">
-      SELECT c.id,c.user_id,c.content,c.create_data,u.head,u.nickname
-      FROM comment c INNER JOIN user u
+      SELECT
+        c.id,
+        c.userID,
+        c.content,
+        c.createDate,
+        u.head,
+        u.nickname
+      FROM
+        comment c
+      INNER JOIN
+        user u
       on
-      c.user_id=u.id where c.article_id=#{articleId}
-      ORDER BY c.create_data DESC;
+        c.userID=u.id
+      where
+        c.articleID=#{articleId}
+      ORDER BY
+        c.createDate DESC;
     </select>
-
-
-
 
 </mapper>

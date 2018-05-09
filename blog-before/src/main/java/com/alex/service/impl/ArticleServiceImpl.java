@@ -50,7 +50,7 @@ public class ArticleServiceImpl implements ArticleService {
         // 转换时间格式
         List<ArticleVO> articles = articleAll.stream().peek(
                 o -> {
-                    o.setCreate_data(DateUtil.getDateByFormat(o.getCreate_data(), "yyyy-MM-dd HH:mm:ss").toLocaleString());
+                    o.setCreateDate(DateUtil.getDateByFormat(o.getCreateDate(), "yyyy-MM-dd HH:mm:ss").toLocaleString());
                 }
         ).collect(Collectors.toList());
 

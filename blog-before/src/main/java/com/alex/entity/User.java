@@ -18,7 +18,7 @@ public class User {
     private String nickname;
 
     /** 用户邮箱 */
-    private String mail;
+    private String email;
 
     /** 用户性别 */
     private String gender;

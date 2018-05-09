@@ -30,7 +30,7 @@ public class ArticleVO {
     private String head;
 
     /** 发表时间 */
-    private String create_data;
+    private String createDate;
 
     /** 文章内容 */
     private String content;
@@ -39,7 +39,7 @@ public class ArticleVO {
     private String title;
 
     /** 文章类别id */
-    private String type_id;
+    private String typeID;
 
 
 }

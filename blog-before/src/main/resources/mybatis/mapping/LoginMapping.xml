@@ -9,14 +9,14 @@
           u.nickname,
           u.gender,
           u.explain,
-          u.mail,
+          u.email,
           u.password,
           u.head,
           u.state
         FROM
           user AS u
         WHERE
-          u.mail=#{user.mail}
+          u.email=#{user.email}
     </select>
 
 </mapper>

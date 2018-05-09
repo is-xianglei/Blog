@@ -52,7 +52,7 @@ public class LoginServiceImpl implements LoginService {
         }
 
         // 用户邮箱错误
-        if (!login.getMail().equals(user.getMail())){
+        if (!login.getEmail().equals(user.getEmail())){
             userResult.setMsg(UserEnum.USER_ERROR.getMessage());
             userResult.setCode(UserEnum.USER_ERROR.getCode());
             return userResult;

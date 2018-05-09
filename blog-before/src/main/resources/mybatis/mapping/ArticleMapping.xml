@@ -6,18 +6,18 @@
     <resultMap id="mappingArticle" type="com.alex.entity.vo.ArticleVO">
         <id column="articleID" property="articleId"/>
         <result column="title" property="title"/>
-        <result column="create_data" property="create_data"/>
+        <result column="createDate" property="createDate"/>
         <result column="userID" property="userId"/>
         <result column="cover" property="cover"/>
         <result column="content" property="content"/>
         <result column="nickname" property="nickname"/>
-        <result column="typeName" property="typeName"/>
+        <result column="typeID" property="typeName"/>
         <result column="head" property="head"/>
     </resultMap>
     <select id="findArticleAll" resultMap="mappingArticle">
         SELECT
           a.title, -- 文章标题
-          a.create_data, -- 发表时间
+          a.createDate, -- 发表时间
           a.id AS articleID, -- 文章的ID
           u.id AS userID, -- 用户的ID
           a.cover, -- 文章封面
@@ -30,11 +30,11 @@
         INNER JOIN
           user AS u
         ON
-          a.user_id = u.id
+          a.userID = u.id
         INNER JOIN
           type AS t
         ON
-          t.id = a.type_id
+          t.id = a.typeID
           <where>
               <if test="search != null and search != ''">
                   AND a.title='%'#{search}'%'
@@ -44,7 +44,7 @@
               </if>
           </where>
         ORDER BY
-          a.create_data
+          a.createDate
         DESC
         LIMIT
           #{begin},#{limit}
@@ -57,11 +57,11 @@
         INNER JOIN
           user AS u
         ON
-          a.user_id = u.id
+          a.userID = u.id
         INNER JOIN
           type AS t
         ON
-          t.id = a.type_id
+          t.id = a.id
         <where>
             <if test="search != null and search != ''">
                 AND a.title='%'#{search}'%'
@@ -76,8 +76,8 @@
     <select id="selectByArticleId" resultMap="mappingArticle">
         select
           a.title, -- 文章标题
-          a.type_id, -- 文章类型ID
-          a.create_data, -- 发表时间
+          a.typeID, -- 文章类型ID
+          a.createDate, -- 发表时间
           a.id AS articleID, -- 文章的ID
           a.cover, -- 文章封面
           a.content, -- 文章内容
@@ -89,15 +89,15 @@
         INNER JOIN
           user u
         ON
-          u.id=a.user_id
+          u.id=a.userID
         where a.id=#{articleId}
     </select>
 
     <!--发布文章-->
     <insert id="addArticle">
       INSERT INTO
-      article
-      (id,user_id,content,cover,title,type_id)
+        article
+        (id,userID,content,cover,title,typeID)
       VALUES
       (#{articleFrom.articleID},#{articleFrom.userID},#{articleFrom.content},#{articleFrom.photo},#{articleFrom.title},#{articleFrom.typeID});
     </insert>
@@ -130,13 +130,13 @@
     IN
       (
         SELECT
-          co.article_id
+          co.articleID
         FROM
           comment AS co
         GROUP BY
-          co.article_id
+          co.articleID
         ORDER BY
-          co.article_id
+          co.articleID
       )
       LIMIT
         0,10

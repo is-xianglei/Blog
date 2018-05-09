@@ -15,13 +15,13 @@ public class CommentVo {
     private String id;
 
     /** 评论人id */
-    private String user_id;
+    private String userID;
 
     /** 评论内容 */
     private String content;
 
     /** 评论时间 */
-    private Date create_data;
+    private Date createDate;
 
     /** 用户头像信息 */
     private String head;

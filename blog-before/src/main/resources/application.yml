@@ -18,8 +18,8 @@ spring:
   datasource:
 #  192.168.31.37
     url: jdbc:mysql://39.106.149.250:3306/sys_blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: zhangzhe
-    password: zhangzhe1518.
+    username: root
+    password: zhangzhe1518
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
     type: com.alibaba.druid.pool.DruidDataSource
