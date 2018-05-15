@@ -21,4 +21,10 @@ public class UserServiceImpl implements UserService{
     public int userRegister(Map<String, Object> map) {
         return userMapper.addUser(map);
     }
+
+
+    @Override
+    public int activeUser(String userId, int state) {
+        return userMapper.updateUserState(userId,state);
+    }
 }

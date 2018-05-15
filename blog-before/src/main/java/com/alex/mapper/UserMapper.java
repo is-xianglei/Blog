@@ -1,6 +1,7 @@
 package com.alex.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Map;
 
@@ -17,4 +18,10 @@ public interface UserMapper {
      * @return
      */
     public int addUser(Map<String,Object> map);
+
+    /**
+     * 修改用户状态
+     * @return
+     */
+    public int updateUserState(@Param("userId") String userId, @Param("state") int state);
 }

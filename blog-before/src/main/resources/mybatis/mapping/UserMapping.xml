@@ -22,5 +22,13 @@
       (#{id},#{nickname},#{email},#{gender},#{explain},#{password},#{head},#{state})
     </insert>
 
+    <!--修改用户状态-->
+    <update id="updateUserState">
+      update
+      user
+      SET state=#{state}
+      where
+      id=#{userId}
+    </update>
 
 </mapper>

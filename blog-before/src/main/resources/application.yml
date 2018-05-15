@@ -59,6 +59,14 @@ spring:
         max-wait: 1
         max-idle: 8
     timeout: 10000
+  #邮件
+  mail:
+    host: smtp.163.com
+    username: zhangzhe_1518@163.com
+    password: zhangzhe1518
+    default-encoding: UTF-8
+    fromMail:
+    addr: zhangzhe_1518@163.com
 
 
 
@@ -68,4 +76,3 @@ mybatis:
   #控制台打印sql
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-

@@ -14,4 +14,10 @@ public interface UserService {
      * @return
      */
     public int userRegister(Map<String,Object> map);
+
+    /**
+     * 用户激活
+     * @return
+     */
+    public int activeUser(String userId,int state);
 }
