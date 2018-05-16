@@ -1,11 +1,13 @@
 package com.alex.controller;
 
+import com.alex.entity.Type;
 import com.alex.entity.User;
 import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.CommentVo;
 import com.alex.service.ArticleService;
 import com.alex.service.CommentService;
+import com.alex.service.TypeService;
 import com.alex.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,9 @@ public class ArticleController {
 
     @Autowired
     private CommentService commentService;
+
+    @Autowired
+    private TypeService typeService;
 
     /**
      * 处理用户发表的文章信息发表成功后在详情页展示用户发表的文章
@@ -84,4 +89,21 @@ public class ArticleController {
         return "detail";
     }
 
+    /**
+     * 文章专栏
+     * @return
+     */
+    @RequestMapping("/column")
+    //@ResponseBody
+    public /*Map<String,Object>*/String column(HttpServletRequest request, Model model){
+
+        Map<String, Object> map = new HashMap<>();
+        //文章类型
+        List<Type> typeList = typeService.typeList();
+        map.put("typeList",typeList);
+        model.addAttribute("map",map);
+
+        return "article";
+
+    }
 }

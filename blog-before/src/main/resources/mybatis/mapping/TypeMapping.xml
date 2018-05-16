@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.alex.mapper.TypeMapper">
+
+    <resultMap id="typeMap" type="com.alex.entity.Type">
+        <id column="id" property="id"/>
+        <result column="typeName" property="typeName"/>
+    </resultMap>
+
+    <select id="selectTpyeList" resultMap="typeMap">
+        SELECT id,typename
+        from type
+    </select>
+</mapper>
