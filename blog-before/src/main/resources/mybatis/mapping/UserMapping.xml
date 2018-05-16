@@ -17,9 +17,13 @@
     <insert id="addUser">
       insert into
       user
-      (id,nickname,email,gender,`explain`,`password`,head,state)
+      (id,nickname,email,`password`)
       values
-      (#{id},#{nickname},#{email},#{gender},#{explain},#{password},#{head},#{state})
+      (#{registerFrom.id},
+      #{registerFrom.nickname},
+      #{registerFrom.email},
+      #{registerFrom.password}
+      )
     </insert>
 
     <!--修改用户状态-->

@@ -24,6 +24,8 @@ public enum  ResultEnum {
     COMMENT_SAVE_SUCCESS(002,"评论成功"),
 
     COMMENT_SAVE_ERROR(003,"评论失败"),
+
+    MAILE_SEND_ERROR(005,"邮件发送失败"),
     ;
 
     private Integer code;

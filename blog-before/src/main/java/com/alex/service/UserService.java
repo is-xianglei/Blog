@@ -1,6 +1,8 @@
 package com.alex.service;
 
-import java.util.Map;
+import com.alex.entity.from.RegisterFrom;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 用户
@@ -10,14 +12,15 @@ public interface UserService {
 
     /**
      * 用户注册
-     * @param map
+     * @param registerFrom
      * @return
      */
-    public int userRegister(Map<String,Object> map);
+    public int userRegister(RegisterFrom registerFrom, HttpServletRequest request, HttpServletResponse response);
 
     /**
      * 用户激活
      * @return
      */
     public int activeUser(String userId,int state);
+
 }

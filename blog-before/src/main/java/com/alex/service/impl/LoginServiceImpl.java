@@ -5,8 +5,15 @@ import com.alex.entity.utils.UserResult;
 import com.alex.enums.UserEnum;
 import com.alex.mapper.LoginMapper;
 import com.alex.service.LoginService;
+import com.alex.utils.CookieUtils;
+import com.alex.utils.JSONUtils;
+import com.alex.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.JedisPool;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 用户登陆
@@ -18,13 +25,16 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
+    private JedisPool jedisPool;
+
+    @Autowired
     private LoginMapper loginMapper;
 
     /**
-     * @see LoginService#login(com.alex.entity.User)
+     * @see com.alex.service.LoginService#login
      */
     @Override
-    public UserResult<User> login(User user) {
+    public UserResult<User> login(User user, HttpServletRequest request, HttpServletResponse response) {
 
         User login = loginMapper.login(user);
 
@@ -69,6 +79,20 @@ public class LoginServiceImpl implements LoginService {
         userResult.setCode(UserEnum.USER_LOGIN_SUCCESS.getCode());
         login.setPassword(null);
         userResult.setData(login);
+
+        // 将用户信息存入Redis
+        String token = "REDIS_USER_SESSION:"+ UUIDUtils.getUUID();
+        //bean转json
+        String strUser = JSONUtils.beanToJsonByFastjson(userResult.getData(),null);
+        jedisPool.getResource().set(token, strUser);
+
+        // 设置用户过期时间30分钟
+        jedisPool.getResource().expire(token,1800);
+
+        // 设置Cookie逻辑，cookie的有效期是关闭浏览器则失效
+        CookieUtils.setCookie(request,response,"SSO-TOKEN",token);
+
+        request.getSession().setAttribute("user",login);
         return userResult;
 
     }

@@ -1,5 +1,6 @@
 package com.alex.utils;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -8,9 +9,9 @@ import java.util.UUID;
  **/
 public class UUIDUtils {
 
-    public static String getUUID(){
+     public static String getUUID(){
 
-        return UUID.randomUUID().toString().replaceAll("-", "");
+        return UUID.randomUUID().toString().replaceAll("-", "").toString();
 
     }
 

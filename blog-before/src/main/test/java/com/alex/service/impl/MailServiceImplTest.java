@@ -1,6 +1,5 @@
 package com.alex.service.impl;
 
-import com.alex.service.MailService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

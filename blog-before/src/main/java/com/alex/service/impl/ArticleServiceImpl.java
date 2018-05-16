@@ -80,7 +80,6 @@ public class ArticleServiceImpl implements ArticleService {
         return articleFrom.getArticleID();
     }
 
-
     /**
      * @see ArticleService#selectByArticleId(String)
      */

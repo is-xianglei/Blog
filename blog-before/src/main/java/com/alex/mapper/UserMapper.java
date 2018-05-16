@@ -1,5 +1,6 @@
 package com.alex.mapper;
 
+import com.alex.entity.from.RegisterFrom;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -14,10 +15,10 @@ public interface UserMapper {
 
     /**
      * 用户注册
-     * @param map
+     * @param registerFrom
      * @return
      */
-    public int addUser(Map<String,Object> map);
+    public int addUser(@Param("registerFrom") RegisterFrom registerFrom);
 
     /**
      * 修改用户状态

@@ -1,5 +1,6 @@
 package com.alex.entity.from;
 
+import com.alex.enums.UserEnum;
 import lombok.Data;
 
 /**
@@ -8,6 +9,9 @@ import lombok.Data;
  */
 @Data
 public class RegisterFrom {
+
+    /** 用户ID */
+    private String id;
 
     /** 邮箱账号 */
     private String email;
@@ -18,7 +22,7 @@ public class RegisterFrom {
     /** 昵称 */
     private String nickname;
 
-    /** 个性签名 */
-    private String explain;
+    /** 用户账户状态 0:未激活1：账户正常2：账户封禁3：账户不存在*/
+    private Integer state = UserEnum.USER_STATE_WARING.getCode();
 
 }
