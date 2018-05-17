@@ -30,10 +30,14 @@ public class JavaMailUtils {
         JavaMailUtils.mailSender = mailSender;
     }
 
-    @Value("${spring.mail.addr}")
-    private static String from;
 
-    public static void sendMail(String target,String title,String body){
+    private static String from;
+    @Value("${spring.mail.addr}")
+    public void setFrom(String from) {
+        JavaMailUtils.from = from;
+    }
+
+    public static void sendMail(String target, String title, String body){
 
         simpleMailMessage.setFrom(from);
         // 发送目标
@@ -47,7 +51,7 @@ public class JavaMailUtils {
             mailSender.send(simpleMailMessage);
 
         } catch (MailException e) {
-            log.info("【邮件发送失败】:{}",e.getMessage());
+            log.info("【邮件发送失败】:{}",e);
             throw new BlogException(ResultEnum.MAILE_SEND_ERROR.getMessage(),ResultEnum.MAILE_SEND_ERROR.getCode());
         }
 

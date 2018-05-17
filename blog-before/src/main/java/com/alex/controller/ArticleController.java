@@ -101,7 +101,7 @@ public class ArticleController {
         //文章类型
         List<Type> typeList = typeService.typeList();
         map.put("typeList",typeList);
-        model.addAttribute("map",map);
+        model.addAttribute("typeList",typeList);
 
         return "article";
 
