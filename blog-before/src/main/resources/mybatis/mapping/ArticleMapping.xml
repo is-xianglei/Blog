@@ -37,10 +37,10 @@
           t.id = a.typeID
           <where>
               <if test="search != null and search != ''">
-                  AND a.title='%'#{search}'%'
+                  AND a.title LIKE concat(concat('%',#{search}),'%')
               </if>
               <if test="type != null and type!=''">
-                  AND t.typeName=#{type}
+                  AND a.typeID=#{type}
               </if>
           </where>
         ORDER BY
@@ -51,23 +51,23 @@
     </select>
     <select id="findArticleCount" resultType="java.lang.Long">
         SELECT
-          count(1)
+        count(1)
         FROM
-          article AS a
+        article AS a
         INNER JOIN
-          user AS u
+        user AS u
         ON
-          a.userID = u.id
+        a.userID = u.id
         INNER JOIN
-          type AS t
+        type AS t
         ON
-          t.id = a.id
+        t.id = a.typeID
         <where>
             <if test="search != null and search != ''">
-                AND a.title='%'#{search}'%'
+                AND a.title LIKE concat(concat('%',#{search}),'%')
             </if>
             <if test="type != null and type!=''">
-                AND t.typeName=#{type}
+                AND a.typeID=#{type}
             </if>
         </where>
     </select>

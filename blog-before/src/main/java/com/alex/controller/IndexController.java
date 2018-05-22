@@ -35,11 +35,12 @@ public class IndexController {
      */
     @GetMapping(value = "/index")
     @ResponseBody
-    public ResultVO<List<ArticleVO>> getHomeHtml(Model model,HttpServletRequest request,@RequestParam(value = "page",defaultValue = "1")Integer page){
+    public ResultVO<List<ArticleVO>> getHomeHtml(@RequestParam(value = "page",defaultValue = "1")Integer page,String type){
 
-        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 6, "", "");
+        ResultVO<List<ArticleVO>> articleAll = articleService.findArticleAll(page, 6, "", type);
         return articleAll;
     }
+
 
     /**
      * 显示热门文章

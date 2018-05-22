@@ -61,11 +61,10 @@
                             </div>
                         </form>
                     </div>
-                    <div class="article-category shadow" id="type">
-                        <div class="article-category-title" >分类导航</div>
-                            <li th:each="types:${typeList}">
-                                <a href="#" th:text="${types.typeName}"></a>
-                            </li>
+                    <div class="article-category shadow" >
+                        <div class="article-category-title" id="type">
+                            分类导航
+                        </div>
 
                         <div class="clear"></div>
                     </div>
@@ -111,10 +110,7 @@
         <div class="blog-share-body">
             <div style="width: 200px;height:100%;">
                 <div class="bdsharebuttonbox">
-                    <a class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                    <a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                    <a class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                    <a class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+
                 </div>
             </div>
         </div>
@@ -128,12 +124,13 @@
     <!-- 本页脚本 -->
     <script th:src="@{/js/home.js}"></script>
 <script>
-layui.use(['jquery'],function(){
 
+layui.use(['jquery','flow'],function(){
     var $ = layui.jquery;
+    var flow = layui.flow;
+    //页面加载完成之后立即执行
     $(function(){
-        window.location.href="/article/column";
-        /*$.ajax({
+        $.ajax({
             type: "get",
             url: "/article/column",
             dataType: "json",
@@ -143,13 +140,58 @@ layui.use(['jquery'],function(){
                 var html = "";
                 $(result.typeList).each(function(index,typeList){
                     //根据文章类别查询
-                    html+='<a href="/article/typeArticle?typeId=">'+typeList.typeName+'<a/>';
+                    html+='<a href="javascript:void(0);" onclick="typeSelect('+typeList.id+');">'+typeList.typeName+'</a>';
                 });
-                $("#type").append(html);
+                $("#type").after(html);
             }
-        });*/
+        });
     });
+
+    //查询分类文章列表
+    typeSelect= function (id){
+        $('#demo').empty();
+        flow.load({
+            elem: '#demo' //指定列表容器
+            ,isLazyimg: true
+            ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+                //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+                $.get('/index/?page='+page+'&type='+id, function(res){
+                    var lis = [];
+                    console.log(res);
+                    //假设你的列表返回在data集合中
+                    layui.each(res.data, function(index, item){
+                        lis.push('<div class="article shadow">');
+                        lis.push('<div class="article-left">');
+                        lis.push('<img lay-src="'+item.head+'" alt="" style="height:80px;"/>');
+                        lis.push('</div>');
+                        lis.push('<div class="article-right">');
+                        lis.push('<div class="article-title" style="margin: 20px 0px;">');
+                        lis.push('<a href="javascript:void(0)">'+item.title+'</a>');
+                        lis.push('<input type="hidden" value="'+item.articleId+'">');
+                        lis.push(' </div>');
+                        lis.push('</div>');
+                        lis.push('<div class="clear"></div>');
+                        lis.push('<div class="article-footer">');
+                        lis.push('<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;'+item.createDate+'</span>');
+                        lis.push('<span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;'+item.nickname+'</span>');
+                        lis.push('<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">'+item.typeName+'</a></span>');
+                        lis.push('<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>');
+                        lis.push('</div>');
+                        lis.push('</div>');
+                    });
+
+                    //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+                    //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+                    next(lis.join(''), page < res.totalPage);
+                });
+            }
+        });
+    }
 });
+
+//文章分类查询
+
+
 </script>
 </body>
 </html>

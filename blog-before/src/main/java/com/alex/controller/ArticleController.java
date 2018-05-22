@@ -5,6 +5,7 @@ import com.alex.entity.User;
 import com.alex.entity.from.ArticleFrom;
 import com.alex.entity.vo.ArticleVO;
 import com.alex.entity.vo.CommentVo;
+import com.alex.entity.vo.ResultVO;
 import com.alex.service.ArticleService;
 import com.alex.service.CommentService;
 import com.alex.service.TypeService;
@@ -94,16 +95,15 @@ public class ArticleController {
      * @return
      */
     @RequestMapping("/column")
-    //@ResponseBody
-    public /*Map<String,Object>*/String column(HttpServletRequest request, Model model){
+    @ResponseBody
+    public Map<String,Object> column(HttpServletRequest request){
 
         Map<String, Object> map = new HashMap<>();
         //文章类型
         List<Type> typeList = typeService.typeList();
         map.put("typeList",typeList);
-        model.addAttribute("typeList",typeList);
 
-        return "article";
+        return map;
 
     }
 }
