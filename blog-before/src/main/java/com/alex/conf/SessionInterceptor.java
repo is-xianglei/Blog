@@ -27,6 +27,12 @@ public class SessionInterceptor implements HandlerInterceptor {
         String cookieValue = CookieUtils.getCookieValue(request, "SSO-TOKEN");
 
         log.info("【SSO-TOKEN】:{}",cookieValue);
+
+        if(null == cookieValue){
+            response.sendRedirect("/user/index");
+            return false;
+        }
+
         String userSesion = resource.get(cookieValue);
 
         if (null == userSesion || "".equals(userSesion)) {
@@ -35,7 +41,7 @@ public class SessionInterceptor implements HandlerInterceptor {
         }
 
         // 更新生命周期
-        jedisPool.getResource().expire("REDIS_USER_SESSION:"+cookieValue,30);
+        jedisPool.getResource().expire("REDIS_USER_SESSION:"+cookieValue,300);
         return true;
 
     }
